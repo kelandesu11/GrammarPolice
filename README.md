@@ -5,8 +5,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Team
 
 Name: Grammar Police
+
 'Description:' Creating an Admin feature for a grammar checking application
+
 'URL:' [GrammarPolice Repo](https://github.com/kelandesu11/GrammarPolice)
+
 'Members:' Kelan McNally: Team Manager and Client Liaison;
 
 ## Development server
