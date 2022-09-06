@@ -11,7 +11,7 @@ Name: Grammar Police
 'URL:' [GrammarPolice Repo](https://github.com/kelandesu11/GrammarPolice)
 
 'Members:' Kelan McNally: Team Manager and Client Liaison;
-Kush Patel: Data Modeler;
+Kush Patel: Data Modeler; Bayann Arslan: UI/UX Designer;
 
 ## Development server
 
