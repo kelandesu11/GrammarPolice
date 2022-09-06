@@ -15,6 +15,7 @@ Name: Grammar Police
 * **Kush Patel**: Data Modeler :bar_chart:
 * **Bayann Arslan**: UI/UX Designer :art:
 * **Mark Bramblett**: Documentation Lead
+* **Chris Titus**: Lead Programmer
 
 ## Development server
 
