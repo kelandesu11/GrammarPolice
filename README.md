@@ -6,13 +6,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Name: Grammar Police
 
-'Description:' Creating an Admin feature for a grammar checking application
+`Description:` Creating an Admin feature for a grammar checking application to help English Professors utilize the app for their students.
 
-'URL:' [GrammarPolice Repo](https://github.com/kelandesu11/GrammarPolice)
+`URL:` [GrammarPolice Repo](https://github.com/kelandesu11/GrammarPolice)
 
-'Members:' Kelan McNally: Team Manager and Client Liaison;
-Kush Patel: Data Modeler; Bayann Arslan: UI/UX Designer;
-Mark Bramblett: Documentation Lead;
+`###Team` 
+* **Kelan McNally**: Team Manager and Client Liaison :shipit:
+* **Kush Patel**: Data Modeler :bar_chart:
+* **Bayann Arslan**: UI/UX Designer :art:
+* **Mark Bramblett**: Documentation Lead
 
 ## Development server
 
