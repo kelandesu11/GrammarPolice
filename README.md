@@ -12,6 +12,7 @@ Name: Grammar Police
 
 'Members:' Kelan McNally: Team Manager and Client Liaison;
 Kush Patel: Data Modeler; Bayann Arslan: UI/UX Designer;
+Mark Bramblett: Documentation Lead;
 
 ## Development server
 
