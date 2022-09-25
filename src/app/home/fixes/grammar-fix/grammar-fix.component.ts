@@ -56,13 +56,13 @@ export class GrammarFixComponent implements OnInit {
     this.data.changeTotalSentences(0);
     this.data.changeGrade(0);
     this.grammar.changeTotalGrammar(0);
-    this.passivevoice.changePassiveVoiceNumber(0);
+    /* this.passivevoice.changePassiveVoiceNumber(0);
     this.wordiness.changeWordinessNumber(0);
     this.transitions.changeTotalTransitions(0);
     this.academic.changeTotalNonAcademic(0);
     this.eggcorns.changeTotalEggcorns(0);
     this.nominalizations.changeNominalizationsNumber(0);
-    this.sentences.changeSentencesNumber(0);
+    this.sentences.changeSentencesNumber(0); */
 
     // Clear -- Reset
     this.grammarUserTable = { find: [], suggestion: [] };

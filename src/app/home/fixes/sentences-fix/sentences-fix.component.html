@@ -5,7 +5,9 @@
   <a class="linkedpages" routerLink="../academic-style-fix">Academic Style</a>
   <a class="linkedpages" routerLink="../grammar-fix">Grammar</a>
   <a class="linkedpages" routerLink="../nominalizations-fix">Nominalizations</a>
+  <div on-mouseenter = "reHighlight()">
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
+  </div>
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
   <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
@@ -25,9 +27,9 @@
 
 <div>
   <div class="column1">
-    <button (click)="reHighlight()" class="rehighlight">
+    <!-- <button (click)="reHighlight()" class="rehighlight">
       Highlight Errors
-    </button>
+    </button> -->
     <p id="userinput" name="userinput">{{ message }}</p>
     <br />
   </div>

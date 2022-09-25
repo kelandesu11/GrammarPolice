@@ -57,16 +57,16 @@ export class AcademicStyleFixComponent implements OnInit {
 
   reHighlight(): void {
     // Reset every time you hit re-highlight
+	this.academic.changeTotalNonAcademic(0);
     this.data.changeTotalSentences(0);
     this.data.changeGrade(0);
-    this.passivevoice.changePassiveVoiceNumber(0);
+   /* this.passivevoice.changePassiveVoiceNumber(0);
     this.wordiness.changeWordinessNumber(0);
     this.transitions.changeTotalTransitions(0);
-    this.academic.changeTotalNonAcademic(0);
     this.grammar.changeTotalGrammar(0);
     this.eggcorns.changeTotalEggcorns(0);
     this.nominalizations.changeNominalizationsNumber(0);
-    this.sentences.changeSentencesNumber(0);
+    this.sentences.changeSentencesNumber(0); */
 
     // Clear -- Reset
     this.academicStyleUserTable = [];
@@ -286,7 +286,7 @@ export class AcademicStyleFixComponent implements OnInit {
     //replace with -> span and highlight
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
-      '<span style="background-color: #FF6363; padding: 0.1em, 0.2em ;font-family: Georgia;" >' +
+      '<span style="background-color: #FF6363; font-family: Georgia;" >' +
       text +
       ' </span>'
     );
