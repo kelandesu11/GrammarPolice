@@ -115,3 +115,25 @@
   .box {
     font-size: 20px;
   }
+
+  .highlight {
+    background-color: #FF6363;
+    font-family: Georgia;
+  }
+
+  .feedbackPopup {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+  .highlight:hover .feedbackPopup {
+    visibility: visible;
+  }
