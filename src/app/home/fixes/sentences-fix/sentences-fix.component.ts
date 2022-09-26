@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { AcademicStyleService } from '../../../services/academicstyle.service';
 import { EggcornService } from '../../../services/eggcorns.service';
@@ -13,6 +13,7 @@ import { TransitionsService } from '../../../services/transitions.service';
   selector: 'app-sentences-fix',
   templateUrl: './sentences-fix.component.html',
   styleUrls: ['./sentences-fix.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SentencesFixComponent implements OnInit {
   title = 'Sentences-Fix';
@@ -157,7 +158,7 @@ export class SentencesFixComponent implements OnInit {
           this.sentencesUserTable.find.push(
             '• Potential Fragment ⟶ "' + sentence + '..."'
           );
-          this.highlight(sentence);
+          this.highlight(sentence, 'Potential Fragment');
           this.sentences.changeSentencesUserTable(this.sentencesUserTable);
           errorFound = false;
           sentence = '';
@@ -170,7 +171,7 @@ export class SentencesFixComponent implements OnInit {
           this.sentencesUserTable.find.push(
             '• Long Sentence ⟶ "' + sentence2 + '..."'
           );
-          this.highlight(sentence2);
+          this.highlight(sentence2, 'Long Sentence');
           this.sentences.changeSentencesUserTable(this.sentencesUserTable);
         }
         sentence2 = '';
@@ -230,15 +231,22 @@ export class SentencesFixComponent implements OnInit {
     );
   }
 
-  highlight(text) {
+  highlight(text, fixText) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
-    //replace with -> span and highlight
+
+    //dynamic/custom regex expression -> only way to use variable inside regex
+    let re = new RegExp(`\\b${text}\\b`, 'gi');
+
+    //replace with -> span and highlight, and sub span with fixText
     paragraph.innerHTML = paragraph.innerHTML.replace(
-      text,
-      '<span style="background-color: #FF6363; font-family: Georgia;" >' +
-        text +
-        ' </span>'
+      re,
+      '<span class="highlight" >' +
+      text +
+      '<span class="feedbackPopup" >' +
+      fixText +
+      '</span>' +
+      ' </span>'
     );
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { DataService } from '../../../data.service';
 import { AcademicStyleService } from '../../../services/academicstyle.service';
 import { EggcornService } from '../../../services/eggcorns.service';
@@ -13,6 +13,7 @@ import { TransitionsService } from '../../../services/transitions.service';
   selector: 'app-transitions-fix',
   templateUrl: './transitions-fix.component.html',
   styleUrls: ['./transitions-fix.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class TransitionsFixComponent implements OnInit {
   title = 'Tranistions-Fix';
@@ -138,7 +139,7 @@ export class TransitionsFixComponent implements OnInit {
         );
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
         // this.transitionsUserTable.suggestion.push(" ⟶ " + this.transitionsTable[fix]);
-        this.highlight(fix);
+        this.highlight(fix, this.transitionsTable[fix]);
       }
     }
     //calcutale score
@@ -229,20 +230,22 @@ export class TransitionsFixComponent implements OnInit {
     );
   }
 
-  //new hgihlight feature uses regex to replace the errors in the entire paragraph
-  highlight(text) {
+  highlight(text, fixText) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
 
     //dynamic/custom regex expression -> only way to use variable inside regex
     let re = new RegExp(`\\b${text}\\b`, 'gi');
 
-    //replace with -> span and highlight
+    //replace with -> span and highlight, and sub span with fixText
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
-      '<span style="background-color: #FF6363; padding: 0.1em, 0.2em ;font-family: Georgia;" >' +
-        text +
-        ' </span>'
+      '<span class="highlight" >' +
+      text +
+      '<span class="feedbackPopup" >' +
+      fixText +
+      '</span>' +
+      ' </span>'
     );
   }
 }

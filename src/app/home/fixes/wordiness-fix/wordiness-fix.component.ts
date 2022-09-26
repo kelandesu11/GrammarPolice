@@ -186,7 +186,7 @@ export class WordinessFixComponent implements OnInit {
     //dynamic/custom regex expression -> only way to use variable inside regex
     let re = new RegExp(`\\b${text}\\b`, 'gi');
 
-    //replace with -> span and highlight
+    //replace with -> span and highlight, and sub span with fixText
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
       '<span class="highlight" >' +
