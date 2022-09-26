@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { DataService } from '../../../data.service';
 import { AcademicStyleService } from '../../../services/academicstyle.service';
 import { EggcornService } from '../../../services/eggcorns.service';
@@ -13,6 +13,7 @@ import { TransitionsService } from '../../../services/transitions.service';
   selector: 'app-wordiness-fix',
   templateUrl: './wordiness-fix.component.html',
   styleUrls: ['./wordiness-fix.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class WordinessFixComponent implements OnInit {
   title = 'Wordiness-Fix';
@@ -126,7 +127,7 @@ export class WordinessFixComponent implements OnInit {
         );
         // this.wordinessUserTable.suggestion.push("→ " + this.wordinessTable[fix]);
         this.wordiness.changeWordinessUserTable(this.wordinessUserTable);
-        this.highlight(fix);
+        this.highlight(fix,this.wordinessTable[fix]);
       }
     }
     this.wordinessScore = (this.wordinessNumber / this.totalSentences) * 100;
@@ -178,7 +179,7 @@ export class WordinessFixComponent implements OnInit {
       (wordinessScore) => (this.wordinessScore = wordinessScore)
     );
   }
-  highlight(text) {
+  highlight(text, fixText) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
 
@@ -188,8 +189,11 @@ export class WordinessFixComponent implements OnInit {
     //replace with -> span and highlight
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
-      '<span style="background-color: #FF6363; font-family: Georgia;" >' +
+      '<span class="highlight" >' +
         text +
+          '<span class="feedbackPopup" >' +
+          fixText +
+          '</span>' +
         ' </span>'
     );
   }
