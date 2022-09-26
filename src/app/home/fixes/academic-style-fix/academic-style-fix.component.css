@@ -119,6 +119,7 @@ td {
   font-size: 20px;
 }
 
+<<<<<<< HEAD
 .tooltip {
   position: relative;
   display: inline-block;
@@ -135,10 +136,32 @@ td {
   padding: 5px 0;
   border-radius: 6px;
  
+=======
+.highlight {
+  background-color: #FF6363;
+  font-family: Georgia;
+}
+
+.feedbackPopup {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+
+  /* Position the tooltip */
+>>>>>>> 235b3232aec511be3378089c9cf3f5dbbffe4b04
   position: absolute;
   z-index: 1;
 }
 
+<<<<<<< HEAD
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+=======
+.highlight:hover .feedbackPopup {
+  visibility: visible;
+}
+>>>>>>> 235b3232aec511be3378089c9cf3f5dbbffe4b04

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { EggcornService } from '../../../services/eggcorns.service';
 import { GrammarService } from '../../../services/grammar.service';
@@ -13,6 +13,7 @@ import { AcademicStyleService } from '../../../services/academicstyle.service';
   selector: 'app-eggcorns-fix',
   templateUrl: './eggcorns-fix.component.html',
   styleUrls: ['./eggcorns-fix.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class EggcornsFixComponent implements OnInit {
   title = 'Eggcorns-Fix';
@@ -133,7 +134,7 @@ export class EggcornsFixComponent implements OnInit {
         this.eggcornsUserTable.find.push(
           '• ' + fix + ' ⟶ ' + this.eggcornsTable[fix]
         );
-        this.highlight(fix);
+        this.highlight(fix, this.eggcornsTable[fix]);
         // this.eggcornsUserTable.suggestion.push(" ⟶ " + this.eggcornsTable[fix]);
         this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
       }
@@ -190,19 +191,22 @@ export class EggcornsFixComponent implements OnInit {
     );
   }
 
-  highlight(text) {
+  highlight(text, fixText) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
 
     //dynamic/custom regex expression -> only way to use variable inside regex
     let re = new RegExp(`\\b${text}\\b`, 'gi');
 
-    //replace with -> span and highlight
+    //replace with -> span and highlight, and sub span with fixText
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
-      '<span style="background-color: #FF6363; font-family: Georgia;" >' +
-        text +
-        ' </span>'
+      '<span class="highlight" >' +
+      text +
+      '<span class="feedbackPopup" >' +
+      fixText +
+      '</span>' +
+      ' </span>'
     );
   }
 }
