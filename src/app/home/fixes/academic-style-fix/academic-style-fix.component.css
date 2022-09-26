@@ -119,24 +119,6 @@ td {
   font-size: 20px;
 }
 
-<<<<<<< HEAD
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
- 
-=======
 .highlight {
   background-color: #FF6363;
   font-family: Georgia;
@@ -151,17 +133,12 @@ td {
   padding: 5px 10px;
 
   /* Position the tooltip */
->>>>>>> 235b3232aec511be3378089c9cf3f5dbbffe4b04
+
   position: absolute;
   z-index: 1;
 }
 
-<<<<<<< HEAD
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-=======
 .highlight:hover .feedbackPopup {
   visibility: visible;
 }
->>>>>>> 235b3232aec511be3378089c9cf3f5dbbffe4b04
+

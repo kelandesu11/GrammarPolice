@@ -286,11 +286,7 @@ export class AcademicStyleFixComponent implements OnInit {
     //replace with -> span and highlight, and sub span with fixText
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
-<<<<<<< HEAD
-      '<span style="background-color: #FF6363; font-family: Georgia;" >' +
-=======
       '<span class="highlight" >' +
->>>>>>> 235b3232aec511be3378089c9cf3f5dbbffe4b04
       text +
       '<span class="feedbackPopup" >' +
       fixText +
