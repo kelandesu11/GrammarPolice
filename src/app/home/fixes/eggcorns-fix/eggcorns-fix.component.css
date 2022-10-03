@@ -139,3 +139,11 @@ td {
 .highlight:hover .feedbackPopup {
   visibility: visible;
 }
+
+.feedbackPopup .highlight {
+  background-color: black;
+}
+
+.feedbackPopup .highlight .feedbackPopup {
+  visibility: hidden;
+}
