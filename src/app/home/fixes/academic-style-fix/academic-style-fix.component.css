@@ -142,3 +142,13 @@ td {
   visibility: visible;
 }
 
+<<<<<<< HEAD
+=======
+.feedbackPopup .highlight {
+  background-color: black;
+}
+
+.feedbackPopup .highlight .feedbackPopup {
+  visibility: hidden;
+}
+>>>>>>> 6698a344b6ecca80013f729b845f183368a3ab83
