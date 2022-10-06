@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { NominalizationsService } from '../../../services/nominalizations.service';
 import { PassivevoiceService } from '../../../services/passivevoice.service';
@@ -13,6 +13,7 @@ import { GrammarService } from '../../../services/grammar.service';
   selector: 'app-nominalizations-fix',
   templateUrl: './nominalizations-fix.component.html',
   styleUrls: ['./nominalizations-fix.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class NominalizationsFixComponent implements OnInit {
   title = 'Nominalizations-Fix';
@@ -142,7 +143,7 @@ export class NominalizationsFixComponent implements OnInit {
             this.nominalizations.changeNominalizationsUserTable(
               this.nominalizationsUserTable
             );
-            this.highlight(word);
+            this.highlight(word, this.nominalizationsTable[fix]);
           }
         }
         word = '';
@@ -219,19 +220,22 @@ export class NominalizationsFixComponent implements OnInit {
     );
   }
 
-  highlight(text) {
+  highlight(text, fixText) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
 
     //dynamic/custom regex expression -> only way to use variable inside regex
     let re = new RegExp(`\\b${text}\\b`, 'gi');
 
-    //replace with -> span and highlight
+    //replace with -> span and highlight, and sub span with fixText
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
-      '<span style="background-color: #FF6363; font-family: Georgia;" >' +
-        text +
-        ' </span>'
+      '<span class="highlight" >' +
+      text +
+      '<span class="feedbackPopup" >' +
+      fixText +
+      '</span>' +
+      ' </span>'
     );
   }
 }
