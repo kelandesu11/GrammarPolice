@@ -161,7 +161,7 @@ export class TransitionsFixComponent implements OnInit {
       } else if (this.transitionsScore <= 10) {
         this.transitionsFeedback =
           'The number of transition words in your writing seems low';
-        this.transitionsAlertColor = 'orange';
+        this.transitionsAlertColor = 'red';
       } else if (this.transitionsScore <= 80) {
         this.transitionsFeedback =
           'Woot! Your writing seems to have a good proportion of transitions';
