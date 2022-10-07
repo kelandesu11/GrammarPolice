@@ -384,7 +384,7 @@ export class HomeComponent implements OnInit {
         this.transitionsFeedback = "Your writing seems to have no transition word";
       } else if (this.transitionsScore <= 10) {
         this.transitionsFeedback = "The number of transition words in your writing seems low";
-        this.transitionsAlertColor = "orange";
+        this.transitionsAlertColor = "red";
       } else if (this.transitionsScore <= 80) {
         this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
         this.transitionsAlertColor = "green";
@@ -546,7 +546,7 @@ export class HomeComponent implements OnInit {
         this.eggcornsFeedback = "Great job Your writing seems to have no Eggcorns.";
       } else if (this.eggcornsScore <= 5) {
         this.eggcornsFeedback = " Good job the number of Eggcorns words in your writing seems low.";
-        this.eggcornsAlertColor = "orange";
+        this.eggcornsAlertColor = "red";
       } else if (this.eggcornsScore <= 10) {
         this.eggcornsFeedback = "Your writing seems to have a lot of eggcorns.";
         this.eggcornsAlertColor = "red";
