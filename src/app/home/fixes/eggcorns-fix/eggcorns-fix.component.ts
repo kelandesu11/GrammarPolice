@@ -147,7 +147,7 @@ export class EggcornsFixComponent implements OnInit {
           'Great job! Your writing seems to have no Eggcorns.';
       } else if (this.eggcornsScore <= 5) {
         this.eggcornsFeedback =
-          ' Good job, the number of Eggcorns words in your writing seems low';
+          'Almost there! The number of Eggcorns words in your writing seems low';
         this.eggcornsAlertColor = 'red';
       } else if (this.eggcornsScore <= 10) {
         this.eggcornsFeedback = 'Your writing seems to have a lot of eggcorns';
