@@ -11,10 +11,9 @@
   <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
 <div class="alert-box" [style.background-color]="academicStyleAlertColor">
-  <h5 class="box">
+  <b class="box">
     {{ totalNonAcademic }} instances ({{ academicStyleScore }}% of sentences)
-  </h5>
-  <b class="box"> Goal: 1% or less </b>
+  </b>
 </div>
 
 <mat-toolbar color="white" class="category">
