@@ -149,7 +149,7 @@ export class PassiveVoiceFixComponent implements OnInit {
       this.passiveVoiceScore = 0;
     }
     try {
-      if (this.passiveVoiceScore > 10) {
+      if (this.passiveVoiceScore > 0) {
         this.passiveVoiceFeedback =
           'Generally, writing is clearer in active voice.';
         this.passiveVoiceAlertColor = 'red';

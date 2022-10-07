@@ -185,7 +185,7 @@ export class SentencesFixComponent implements OnInit {
       this.sentencesScore = 0;
     }
     try {
-      if (this.sentencesScore > 2) {
+      if (this.sentencesScore > 0) {
         this.sentencesFeedback =
           'Hmmm. Your writing may have some sentence-level issues. Check the list below for potential fragments or run-ons.';
         this.sentencesAlertColor = 'red';

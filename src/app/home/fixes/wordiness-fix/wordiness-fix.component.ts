@@ -135,7 +135,7 @@ export class WordinessFixComponent implements OnInit {
       this.wordinessScore = 0;
     }
     try {
-      if (this.wordinessScore > 2) {
+      if (this.wordinessScore > 0) {
         this.wordinessFeedback =
           'Your writing seems too wordy. Why use 3 words when you can say it with 1?';
         this.wordinessAlertColor = 'red';

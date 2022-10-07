@@ -214,7 +214,7 @@ export class AcademicStyleFixComponent implements OnInit {
       this.academicStyleScore = 0;
     }
     try {
-      if (this.academicStyleScore > 1) {
+      if (this.academicStyleScore > 0) {
         this.academicStyleAlertColor = 'red';
         this.academicStyleFeedback =
           'Your writing may contain language that is either too casual or too extreme for academic discourse.';
