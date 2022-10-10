@@ -27,6 +27,9 @@ import { NominalizationsFixComponent } from './home/fixes/nominalizations-fix/no
 import { SentencesFixComponent } from './home/fixes/sentences-fix/sentences-fix.component';
 import { EggcornsFixComponent } from './home/fixes/eggcorns-fix/eggcorns-fix.component';
 import { TransitionsFixComponent } from './home/fixes/transitions-fix/transitions-fix.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const material = [
   MatToolbarModule
@@ -51,7 +54,10 @@ const material = [
     NominalizationsFixComponent,
     SentencesFixComponent,
     EggcornsFixComponent,
-    TransitionsFixComponent
+    TransitionsFixComponent,
+    SignupComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
