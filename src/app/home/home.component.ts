@@ -10,6 +10,7 @@ import { EggcornService } from '../services/eggcorns.service';
 import { AcademicStyleService } from '../services/academicstyle.service';
 import { NominalizationsService } from '../services/nominalizations.service';
 import { SentencesService } from '../services/sentences.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-home',
@@ -97,7 +98,13 @@ export class HomeComponent implements OnInit {
               private eggcorns: EggcornService,
               private academic: AcademicStyleService,
               private nominalizations: NominalizationsService,
-              private sentences: SentencesService) { }
+              private sentences: SentencesService,
+              public afAuth: AngularFireAuth) { }
+
+  //Add logout button
+  logout():void{
+      this.afAuth.signOut();
+  }
 
   submitClick(): void {
     // Reset every time you hit re-highlight
