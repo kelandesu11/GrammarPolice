@@ -1,4 +1,5 @@
 <mat-card>
+    <div id="formHolder">
     <form [formGroup]="loginForm" (ngSubmit)="loginUser()" type="">
         <p>
             <mat-form-field appearance="outline">
@@ -18,4 +19,5 @@
 
         <button mat-raised-button color="primary">Login</button>
     </form>
+    </div>
 </mat-card>
