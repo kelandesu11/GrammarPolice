@@ -133,6 +133,7 @@ td {
   padding: 5px 10px;
 
   /* Position the tooltip */
+
   position: absolute;
   z-index: 1;
 }
@@ -141,6 +142,7 @@ td {
   visibility: visible;
 }
 
+
 .feedbackPopup .highlight {
   background-color: black;
 }
@@ -148,3 +150,4 @@ td {
 .feedbackPopup .highlight .feedbackPopup {
   visibility: hidden;
 }
+

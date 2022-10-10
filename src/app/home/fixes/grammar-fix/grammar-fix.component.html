@@ -3,7 +3,9 @@
   <a class="linkedpages" routerLink="../passive-voice-fix">Passive Voice</a>
   <a class="linkedpages" routerLink="../wordiness-fix">Wordiness</a>
   <a class="linkedpages" routerLink="../academic-style-fix">Academic Style</a>
+  <div on-mouseenter = "reHighlight()">
   <a class="linkedpages" routerLink="../grammar-fix">Grammar</a>
+  </div>
   <a class="linkedpages" routerLink="../nominalizations-fix">Nominalizations</a>
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
@@ -22,7 +24,7 @@
 
 <div>
   <div class="column1">
-    <button (click)="reHighlight()" class="rehighlight">Highlight Errors</button>
+    <!-- <button (click)="reHighlight()" class="rehighlight">Highlight Errors</button> -->
     <p id="userinput" name="userinput">{{ message }}</p>
     <br>
   </div>

@@ -1,7 +1,9 @@
 <mat-toolbar color="white" class="navbar">
   <a class="linkedpages" routerLink="../../overview">Overview</a>
   <a class="linkedpages" routerLink="../passive-voice-fix">Passive Voice</a>
+  <div on-mouseenter = "reHighlight()">
   <a class="linkedpages" routerLink="../wordiness-fix">Wordiness</a>
+  </div>
   <a class="linkedpages" routerLink="../academic-style-fix">Academic Style</a>
   <a class="linkedpages" routerLink="../grammar-fix">Grammar</a>
   <a class="linkedpages" routerLink="../nominalizations-fix">Nominalizations</a>
@@ -24,9 +26,9 @@
 
 <div>
   <div class="column1">
-    <button (click)="reHighlight()" class="rehighlight">
+    <!-- <button (click)="reHighlight()" class="rehighlight">
       Highlight Errors
-    </button>
+    </button> -->
     <p id="userinput" name="userinput">{{ message }}</p>
     <br />
   </div>
