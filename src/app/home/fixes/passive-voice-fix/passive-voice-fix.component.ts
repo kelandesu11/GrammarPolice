@@ -133,13 +133,13 @@ export class PassiveVoiceFixComponent implements OnInit {
             this.passiveVoiceNumber + 1
           );
           this.passiveVoiceUserTable.find.push(
-            '• ' + compareString + ' ⟶ ' + this.passiveVoiceTable[fix]
+            '• ' + compareString
           );
           // this.passiveVoiceUserTable.suggestion.push(" ⟶ " + this.passiveVoiceTable[fix]);
           this.passivevoice.changePassiveVoiceUserTable(
             this.passiveVoiceUserTable
           );
-          this.highlight(fix, this.passiveVoiceTable[fix]);
+          this.highlight(fix);
         }
       }
     }
@@ -201,7 +201,7 @@ export class PassiveVoiceFixComponent implements OnInit {
     );
   }
 
-  highlight(text, fixText) {
+  highlight(text) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
 
@@ -213,9 +213,6 @@ export class PassiveVoiceFixComponent implements OnInit {
       re,
       '<span class="highlight" >' +
       text +
-      '<span class="feedbackPopup" >' +
-      fixText +
-      '</span>' +
       ' </span>'
     );
   }
