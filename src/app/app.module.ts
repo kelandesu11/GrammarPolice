@@ -1,10 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { HomeComponent } from './home/home.component';
@@ -63,6 +69,17 @@ const material = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
+
+    AngularFireModule.initializeApp(environment.firebase),  // imports firebase/app needed for everything
+
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+
+    FormsModule,
+    ReactiveFormsModule,
+
     material,
     BrowserAnimationsModule
   ],
