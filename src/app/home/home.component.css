@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 
 body {
-  background-color: #00704A;
+  /* background-color: #2F6E4D; */
+  background-image: linear-gradient(#F3FFF6, #2F6E4D);
   font-family: 'Work Sans', sans-serif;
 }
 
@@ -11,24 +12,42 @@ body {
   margin-right: auto;
 }
 
+#grammarChecker {
+  text-align: center;
+  line-height: .1;
+  color: #2F6E4D;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+#grammarDescription {
+  text-align: center;
+  line-height: 1;
+  color: #6E8C7C;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
 #textboxBackground {
   width: 100%;
-  background: url("bookpageBackground.jpg");
+  background: url("backgroundgradient.jpg");
   margin-top: 0%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed; /*make sure when scrolling its fixed*/
   padding-top: 35px;
   padding-bottom: 50px;
 }
 
 #attentionGrabber {
-  font-size: 90px;
-  font-weight: 900;
+  font-size: 20px;
+  font-weight: 500;
+  color: #2F6E4D;
   -webkit-text-stroke-width: .25px;
-  -webkit-text-stroke-color: #ffffff;
-  text-align: center;
-  margin-bottom: 100px;
+  /* -webkit-text-stroke-color: #ffffff; */
+  text-align: left;
+  margin-bottom: 10px;
+  padding-left: 7px;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
 }
 
 .column2 {
@@ -63,13 +82,16 @@ body {
 }
 
 .homedescription {
-  color: white;
-  text-align: center;
+  color: #2F6E4D;
+  text-align: left;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
 }
 
 .homedescription h3 {
-  font-size: 50px;
-  line-height: 1;
+  font-size: 15px;
+  line-height: .5;
+  padding-left: 7px;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
 }
 
 #userinput {
@@ -77,29 +99,38 @@ body {
   min-height: 100px;
   width: 95%;
   resize: none;
-  border-width: thick;
-  padding: 5px;
+  border-width: 1.5px;
+  padding: 15px;
   font-size: 14px;
-  border-color: black;
+  border-color: #C6DBD0;
+  border-radius: 23px;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+::placeholder {
+  color: #ADADAD;
 }
 
 #submitbutton {
-  background-color: #A5ACB0;
-  color: #00704A;
+  background-color: #2F6E4D;
+  color: #FFFFFF;
   width: 250px;
-  height: 75px;
-  font-size: 35px;
-  font-weight: bold;
+  height: 60px;
+  font-size: 25px;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  /* font-weight: bold; */
   margin-left: 35%;
   display: table-cell;
   vertical-align: middle;
-  border: 5px solid black;
+  /* border: 5px solid black; */
+  border-radius: 23px;
+  border: none;
 }
 
 #submitbutton:hover {
-  background-color: #8f9599;
-  border-color: #000000;
-  color: #065339;
+  background-color: #ADADAD;
+  /* border-color: #000000; */
+  color: #2F6E4D;
   cursor: pointer;
 }
 

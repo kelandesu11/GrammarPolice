@@ -13,6 +13,7 @@
   <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
 
+<body>
 <div class="alert-box" [style.background-color]="nominalizationsAlertColor">
   <h5 class="box">{{ nominalizationsNumber }} instances ({{ nominalizationsScore }}% of words)</h5>
     <b class="box">Goal: 6% or less </b>
@@ -42,3 +43,4 @@
 		</table>
   </div>
 </div>
+</body>

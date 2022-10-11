@@ -1,28 +1,20 @@
-.linkedpages {
-  text-decoration: none;
-  display: inline-block;
-  border-left: black groove;
-  border-right: black groove;
-  width: 10%;
-  text-align: center;
-  color: black;
-  font-size: 16px;
-}
-
-.navbar {
-  margin: 0px;
-  padding: 0px;
+body {
+  background-color: #F3FFF6;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
 }
 
 .resultdescription {
-  font-size: 36px;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-size: 25px;
   padding: 10px 0px;
+  padding-left: 9%;
 }
 
 th, td {
-  border: 1px solid black;
+  border: 1.5px solid #C6DBD0;
   padding: 20px;
 }
+
 .odd {
   background-color: #87CEFA;
 }
@@ -31,15 +23,32 @@ th, td {
   background-color:#00CED1;
 }
 
-.tablehead {
-  font-size: 32px;
-  background-color: white;
+.categoryHead {
+  font-size: 25px;
+  background-color: #FBFBFB;
+  border-top-left-radius: 23px;
+  font-weight: 100;
+}
+
+.resultsHead {
+  font-size: 25px;
+  background-color: #FBFBFB;
+  border-top-right-radius: 23px;
+  font-weight: 100;
+}
+
+.lastRow {
+  border-bottom-right-radius: 23px;
+}
+
+.lastRowName {
+  border-bottom-left-radius: 23px;
 }
 
 .tablerow {
   text-decoration: none;
   color: black;
-  font-size: 24px;
+  font-size: 23px;
 }
 
 .tablecss {
@@ -48,20 +57,29 @@ th, td {
 
 .startoverbutton {
   margin-top: 20px;
-  background-color: #a5acb0;
-  width: 300px;
-  height: 50px;
-  border-radius: 14px;
-  font-size: 17px;
-  font-weight: bold;
-  margin-left: 25%;
-  font-style: oblique;
+  background-color: #2F6E4D;
+  color: #FFFFFF;
+  width: 250px;
+  height: 60px;
+  border-radius: 23px;
+  font-size: 25px;
+  /* font-weight: bold; */
+  margin-left: 14%;
+  /* font-style: oblique; */
   display: table-cell;
   vertical-align: middle;
+  border: none;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+.startoverbutton:hover {
+  background-color: #ADADAD;
+  color: #2F6E4D;
+  cursor: pointer;
 }
 
 .tablediv {
-  padding-left: 18%;
+  padding-left: 6%;
 }
 
 .columns {
@@ -74,215 +92,3 @@ th, td {
   padding-bottom: 40px;
 }
 
-.column2 {
-  float: left;
-  width: 49%;
-  padding: 20px 0px;
-}
-
-.tinybutton {
-  padding: 10px;
-  margin-right: 5px;
-  background-color: lightskyblue;
-  width: 100px;
-  height: 50px;
-  border-radius: 14px;
-  font-size: 17px;
-  font-weight: bold;
-}
-
-.tinygroup {
-  padding-bottom: 20px;
-}
-
-.c2 h3, .c2 p, .tinygroup {
-  padding-left: 80px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-p {
-  font-size: 16px;
-}
-
-.c2 table{
-  margin: auto;
-}
-
-.linkedpages {
-color: black;
-text-decoration: none;
-border-left: black groove;
-display: inline-block;
-width: 135px;
-text-align: center;
-}
-
-.linkedpages:hover{
-background-color: rgb(156, 166, 166);
-border-radius: 10px;
-color: rgb(255, 255, 255);
-}
-
-.gradeCircle {
-  height: 150px;
-  width: 100px;
-  padding: 30px;
-  text-align: center;
-  display: inline-block;
-}
-
-.gradeFeedback {
-  padding: 10px;
-  text-align: center;
-  vertical-align: middle;
-  display: inline-block;
-}
-
-.gradeFeedbackText {
-  padding-top: 120px;
-  font-size: 20px;
-}
-
-.passiveVoiceCircle, .wordinessCircle, .academicStyleCircle, .grammarCircle {
-  height: 100px;
-    width: 100px;
-    padding: 30px;
-    text-align: center;
-    display:table-cell;
-    vertical-align:middle;
-}
-
-.transitionsCircle, .eggcornsCircle, .nominalizationsCircle, .sentencesCircle {
-  height: 100px;
-    width: 100px;
-    padding: 30px;
-    text-align: center;
-    display: inline-block;
-}
-
-.circular{
-  height: 100px;
-  width: 100px;
-  position: relative;
-}
-
-.circular .inner, .circular .outer, .circular .circle{
-  position: absolute;
-  z-index: 6;
-  height: 100%;
-  width: 100%;
-  border-radius: 100%;
-  box-shadow: inset 0 1px 0 rgba(0,0,0,0.2);
-}
-
-.circular .inner{
-  top: 50%;
-  left: 50%;
-  height: 80px;
-  width: 80px;
-  margin: -40px 0 0 -40px;
-  background-color: #dde6f0;
-  border-radius: 100%;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.2);
-}
-
-.circular .circle{
-  z-index: 1;
-  box-shadow: none;
-}
-
-.circular .numb{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  font-size: 18px;
-  font-weight: 500;
-  color: #4158d0;
-}
-
-.circular .bar{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: #fff;
-  border-radius: 100%;
-  clip: rect(0px, 100px, 100px, 50px);
-}
-
-.circle .bar .progress{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  border-radius: 100%;
-  clip: rect(0px, 50px, 100px, 0px);
-}
-
-.circle .bar .progress, .dot span{
-  background: #4158d0;
-}
-
-.circle .left .progress{
-  z-index: 1;
-  animation: left 4s linear both;
-}
-
-@keyframes left {
-  100%{
-    transform: rotate(180deg);
-  }
-}
-
-.circle .right{
-  z-index: 3;
-  transform: rotate(180deg);
-}
-
-.circle .right .progress{
-  animation: right 4s linear both;
-  animation-delay: 4s;
-}
-
-@keyframes right {
-  100%{
-    transform: rotate(180deg);
-  }
-}
-
-.circle .dot{
-  z-index: 2;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 50%;
-  height: 10px;
-  margin-top: -5px;
-  animation: dot 8s linear both;
-  transform-origin: 0% 50%;
-}
-
-.circle .dot span {
-  position: absolute;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-}
-
-@keyframes dot{
-  0% {
-    transform: rotate(-90deg);
-  }
-  50% {
-    transform: rotate(90deg);
-    z-index: 4;
-  }
-  100% {
-    transform: rotate(270deg);
-    z-index: 4;
-  }
-}

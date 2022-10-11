@@ -9,6 +9,11 @@
   font-size: 16px;
 }
 
+body {
+  background-color: #F3FFF6;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
 .navbar {
   margin: 0px;
   padding: 0px;
@@ -96,7 +101,7 @@
   }
 
   .alert-box{
-    background-color: rgb(231, 33, 33);
+    background-color: #D39898;
     min-width: 300px;
     margin-left: 850px;
     text-align: left;
@@ -115,10 +120,10 @@
     font-size: 20px;
   }
 
-.highlight {
-  background-color: #FF6363;
-  font-family: Georgia;
-}
+  .highlight {
+    background-color: #D39898;
+    font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  }
 
 .feedbackPopup {
   visibility: hidden;
