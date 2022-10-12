@@ -9,6 +9,11 @@
   font-size: 16px;
 }
 
+body {
+  background-color: #F3FFF6;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
 .navbar {
   margin: 0px;
   padding: 0px;
@@ -47,8 +52,7 @@
   resize: none;
   border-width: thick;
   padding: 5px;
-  font-size: 20px;
-  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
 }
 
 .rehighlight {
@@ -99,7 +103,7 @@
 }
 
 .alert-box {
-  background-color: rgb(231, 33, 33);
+  background-color: #D39898;
   min-width: 300px;
   margin-left: 850px;
   text-align: left;
@@ -116,4 +120,34 @@ td {
 
 .box {
   font-size: 20px;
+}
+
+.highlight {
+  background-color: #D39898;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+.feedbackPopup {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.highlight:hover .feedbackPopup {
+  visibility: visible;
+}
+
+.feedbackPopup .highlight {
+  background-color: black;
+}
+
+.feedbackPopup .highlight .feedbackPopup {
+  visibility: hidden;
 }

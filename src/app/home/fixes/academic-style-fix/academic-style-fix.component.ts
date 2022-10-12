@@ -1,6 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
-import {MatToolbarModule} from '@angular/material/toolbar'; 
-import { Component, OnInit } from '@angular/core';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { DataService } from '../../../data.service';
 import { AcademicStyleService } from '../../../services/academicstyle.service';
 import { EggcornService } from '../../../services/eggcorns.service';
@@ -15,6 +15,7 @@ import { TransitionsService } from '../../../services/transitions.service';
   selector: 'app-academic-style-fix',
   templateUrl: './academic-style-fix.component.html',
   styleUrls: ['./academic-style-fix.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AcademicStyleFixComponent implements OnInit {
   title = 'Academic-Style-Fix';
@@ -57,16 +58,16 @@ export class AcademicStyleFixComponent implements OnInit {
 
   reHighlight(): void {
     // Reset every time you hit re-highlight
+	this.academic.changeTotalNonAcademic(0);
     this.data.changeTotalSentences(0);
     this.data.changeGrade(0);
-    this.passivevoice.changePassiveVoiceNumber(0);
+   /* this.passivevoice.changePassiveVoiceNumber(0);
     this.wordiness.changeWordinessNumber(0);
     this.transitions.changeTotalTransitions(0);
-    this.academic.changeTotalNonAcademic(0);
     this.grammar.changeTotalGrammar(0);
     this.eggcorns.changeTotalEggcorns(0);
     this.nominalizations.changeNominalizationsNumber(0);
-    this.sentences.changeSentencesNumber(0);
+    this.sentences.changeSentencesNumber(0); */
 
     // Clear -- Reset
     this.academicStyleUserTable = [];
@@ -145,7 +146,7 @@ export class AcademicStyleFixComponent implements OnInit {
 
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
         //highlights the error
-        this.highlight(fix);
+        this.highlight(fix, this.academicStyleTable[fix]);
 
         while (userText.indexOf(fix, errorIndex + 1) > errorIndex) {
           // console.log(errorIndex, "• " + fix + " ⟶ " + this.academicStyleTable[fix])
@@ -276,8 +277,7 @@ export class AcademicStyleFixComponent implements OnInit {
     );
   }
 
-  //new hgihlight feature uses regex to replace the errors in the entire paragraph
-  highlight(text) {
+  highlight(text, fixText) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
     console.log("Highighting now")
@@ -285,11 +285,14 @@ export class AcademicStyleFixComponent implements OnInit {
     //dynamic/custom regex expression -> only way to use variable inside regex
     let re = new RegExp(`\\b${text}\\b`, 'gi');
 
-    //replace with -> span and highlight
+    //replace with -> span and highlight, and sub span with fixText
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
-      '<span style="background-color: #FF6363; padding: 0.1em, 0.2em ;font-family: Georgia;" >' +
+      '<span class="highlight" >' +
       text +
+      '<span class="feedbackPopup" >' +
+      fixText +
+      '</span>' +
       ' </span>'
     );
   }

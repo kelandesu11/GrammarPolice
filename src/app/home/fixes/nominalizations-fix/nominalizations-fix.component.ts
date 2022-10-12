@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { NominalizationsService } from '../../../services/nominalizations.service';
 import { PassivevoiceService } from '../../../services/passivevoice.service';
@@ -13,6 +13,7 @@ import { GrammarService } from '../../../services/grammar.service';
   selector: 'app-nominalizations-fix',
   templateUrl: './nominalizations-fix.component.html',
   styleUrls: ['./nominalizations-fix.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class NominalizationsFixComponent implements OnInit {
   title = 'Nominalizations-Fix';
@@ -55,16 +56,16 @@ export class NominalizationsFixComponent implements OnInit {
 
   reHighlight(): void {
     // Reset every time you hit re-highlight
+	this.nominalizations.changeNominalizationsNumber(0);
     this.data.changeTotalSentences(0);
     this.data.changeGrade(0);
-    this.passivevoice.changePassiveVoiceNumber(0);
+   /* this.passivevoice.changePassiveVoiceNumber(0);
     this.wordiness.changeWordinessNumber(0);
     this.transitions.changeTotalTransitions(0);
     this.academic.changeTotalNonAcademic(0);
     this.grammar.changeTotalGrammar(0);
     this.eggcorns.changeTotalEggcorns(0);
-    this.nominalizations.changeNominalizationsNumber(0);
-    this.sentences.changeSentencesNumber(0);
+    this.sentences.changeSentencesNumber(0); */
 
     // Clear -- Reset
     this.nominalizationsUserTable = { find: [], suggestion: [] };
@@ -142,7 +143,7 @@ export class NominalizationsFixComponent implements OnInit {
             this.nominalizations.changeNominalizationsUserTable(
               this.nominalizationsUserTable
             );
-            this.highlight(word);
+            this.highlight(word, this.nominalizationsTable[fix]);
           }
         }
         word = '';
@@ -219,18 +220,26 @@ export class NominalizationsFixComponent implements OnInit {
     );
   }
 
-  highlight(text) {
+  highlight(text, fixText) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
 
     //dynamic/custom regex expression -> only way to use variable inside regex
     let re = new RegExp(`\\b${text}\\b`, 'gi');
 
-    //replace with -> span and highlight
+    //replace with -> span and highlight, and sub span with fixText
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
+<<<<<<< HEAD
       '<span style="background-color: #FF6363; font-family: Georgia;" >' +
       text +
+=======
+      '<span class="highlight" >' +
+      text +
+      '<span class="feedbackPopup" >' +
+      fixText +
+      '</span>' +
+>>>>>>> highlight-firebae-fix
       ' </span>'
     );
   }

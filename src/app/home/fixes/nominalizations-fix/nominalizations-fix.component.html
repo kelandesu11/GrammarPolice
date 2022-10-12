@@ -4,13 +4,16 @@
   <a class="linkedpages" routerLink="../wordiness-fix">Wordiness</a>
   <a class="linkedpages" routerLink="../academic-style-fix">Academic Style</a>
   <a class="linkedpages" routerLink="../grammar-fix">Grammar</a>
+  <div on-mouseenter = "reHighlight()">
   <a class="linkedpages" routerLink="../nominalizations-fix">Nominalizations</a>
+  </div>
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
   <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
 
+<body>
 <div class="alert-box" [style.background-color]="nominalizationsAlertColor">
   <h5 class="box">{{ nominalizationsNumber }} instances ({{ nominalizationsScore }}% of words)</h5>
     <b class="box">Goal: 6% or less </b>
@@ -23,7 +26,7 @@
 
 <div>
   <div class="column1">
-    <button (click)="reHighlight()" class="rehighlight">Highlight Errors</button>
+    <!-- <button (click)="reHighlight()" class="rehighlight">Highlight Errors</button> -->
     <p id="userinput" name="userinput">{{ message }}</p>
     <br>
   </div>
@@ -40,3 +43,4 @@
 		</table>
   </div>
 </div>
+</body>

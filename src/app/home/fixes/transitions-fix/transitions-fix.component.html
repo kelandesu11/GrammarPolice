@@ -7,10 +7,12 @@
   <a class="linkedpages" routerLink="../nominalizations-fix">Nominalizations</a>
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
+  <div on-mouseenter = "reHighlight()">
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
+  </div>
   <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
-
+<body>
 <div class="alert-box" [style.background-color]="transitionsAlertColor">
   <h5 class="box">
     {{ totalTransitions }} instances ({{ transitionsScore }}% of sentences)
@@ -27,9 +29,9 @@
 
 <div>
   <div class="column1">
-    <button (click)="reHighlight()" class="rehighlight">
+   <!-- <button (click)="reHighlight()" class="rehighlight">
       Highlight Errors
-    </button>
+    </button> -->
     <p id="userinput" name="userinput">{{ message }}</p>
     <br />
   </div>
@@ -56,3 +58,4 @@
     </table>
   </div>
 </div>
+</body>
