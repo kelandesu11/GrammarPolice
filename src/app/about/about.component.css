@@ -2,6 +2,18 @@ html, p, h1{
   cursor: default;
 }
 
+div {
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+h1, h2 {
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+mark {
+  background-color: rgb(253, 255, 159);
+}
+
 .title {
   font-size: 40px;
   padding: 10px 0px;
@@ -12,7 +24,7 @@ html, p, h1{
 .aboutcolumn {
   padding-left: 5%;
   padding-top: 20px;
-  
+  background-color: #F3FFF6;
   display: flex;
   justify-content: center;
   cursor: default;
@@ -23,8 +35,9 @@ html, p, h1{
   width: 60%;
   padding: 20px;
   max-width: 750px;
-  border: 2.5px dashed lightblue;
-  border-radius: 8px;
+  border: 1.5px solid #C6DBD0;
+  border-radius: 23px;
+  background-color: #FBFBFB;
   
 }
 
@@ -37,9 +50,9 @@ html, p, h1{
 }
 
 .c {
-  background-color: #f8f8ff;
-  border-color: black;
-  border: groove;
+  background-color: #FBFBFB;
+  border-radius: 23px;
+  border: 1.5px dashed #C6DBD0;
   padding: 20px;
   margin-bottom: 19px;
 }

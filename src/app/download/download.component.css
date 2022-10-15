@@ -1,4 +1,10 @@
 .downloadinformation {
     padding: 40px;
     font-size: large;
+    background-color: #F3FFF6;
+    font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+h1 {
+    font-family: Futura,Trebuchet MS,Arial,sans-serif;
 }

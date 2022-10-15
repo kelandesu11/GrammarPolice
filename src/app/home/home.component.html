@@ -22,14 +22,16 @@
 </div>
   <div id="textboxBackground">
     <div class="column">
+      <h1 id="grammarChecker">Grammar Checker</h1>
+      <h3 id="grammarDescription">Check your text for any potential errors</h3>
       <textarea id="userinput" name="userinput" [(ngModel)]="message"
         placeholder="Type or paste your writing here. It will not be stored or reused in any way.">{{message}}</textarea>
-      <br>
+      <br><br>
       <button id="submitbutton" (click)="submitClick()">SUBMIT</button>
       <!--input type="text" [(ngModel)]="message"-->
     </div>
-  </div>
-  <br><br><br>
+  <!-- </div> comment this out and uncomment bottom div to remove green block on bottom -->
+  <br>
   <h1 id="attentionGrabber">HOW IS GRAMMARK HELPFUL?</h1>
 
   <div class="column1">
@@ -37,7 +39,7 @@
       <h3>It takes a teacher <b>15-30 minutes</b> to correct 1 paper</h3>
       <h3>It takes Grammark <b>0.14 seconds</b> to locate 6,239 errors</h3>
     </div>
-    <br>
+    <!-- <br> -->
   </div>
-
+  </div> <!--this div is to get rid of green at the bottom, uncomment the comment div up there to get it back-->
 </body>

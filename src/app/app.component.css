@@ -1,9 +1,9 @@
 .mat-toolbar.mat-primary {
     background: #00704a;
     color: #fff;
-    border-left: black groove;
-    border-right: black groove;
-    height: 85px;
+    /* border-left: black groove;
+    border-right: black groove; */
+    height: 80px;
   }
 
   /*.mat-toolbar.mat-primary:hover {
@@ -20,35 +20,43 @@
   background-color: #EEF43B;
 }
 
+h1, h3 {
+  font-size: 18px;
+  line-height: 1;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+/* 
 .grammark{
     font-size: 90px;
     font-weight: 900;
-     color: #85C446;
+     color: #FFFFFF;
     -webkit-text-stroke-width: .25px;
-    -webkit-text-stroke-color: #000000;
+    /* -webkit-text-stroke-color: #000000; */
     
-}
 
-.grammark:hover{
+
+/* .grammark:hover{
   color: #409e7f;
 }
 
 .grammark:active {
   text-decoration: none;
-}
+} */
 
 .linkedpages {
-  color: black;
+  color: white;
   text-decoration: none;
-  border-left: black groove;
+  /* border-left: black groove;  */
   display: inline-block;
-  width: 135px;
+  width: 110px;
   text-align: center;
+  font-size: 13px;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
 }
 .linkedpages:hover{
-  background-color: #409e7f;
-  border-radius: 10px;
-  color: rgb(255, 255, 255);
+  /* background-color: #409e7f;
+  border-radius: 10px; */
+  color: #ADADAD;
 }
 
 /**.linksHighlight {

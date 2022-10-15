@@ -1,4 +1,3 @@
-
 <mat-toolbar color="white" class="navbar">
   <a class="linkedpages" routerLink="../../overview">Overview</a>
   <div on-mouseenter = "reHighlight()">
@@ -14,6 +13,7 @@
   <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
 
+<body>
 <div class="alert-box" [style.background-color]="passiveVoiceAlertColor">
   <b class="box">{{ passiveVoiceNumber }} instances ({{ passiveVoiceScore }}% of sentences)</b>
 </div>
@@ -59,3 +59,4 @@
 		</table>
   </div>
 </div>
+</body>
