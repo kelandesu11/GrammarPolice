@@ -1,25 +1,4 @@
-
 <body>
-<div id="adminControls">
-<div *ngIf="!(afAuth.user | async)">
-  <button mat-stroked-button color="primary" routerLink="/login">
-    Login
-  </button>
-</div>
-<div *ngIf="(afAuth.user | async)">
-  <button mat-stroked-button color="primary" routerLink="/signup">
-   Signup
-  </button>
-
-  <button mat-stroked-button color="primary" routerLink="/dashboard">
-    Dashboard
-  </button>
-
-  <button mat-stroked-button color="primary" (click)="logout()">
-    Log out
-  </button> 
-</div>
-</div>
   <div id="textboxBackground">
     <div class="column">
       <h1 id="grammarChecker">Grammar Checker</h1>

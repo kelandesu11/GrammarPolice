@@ -36,6 +36,8 @@ import { TransitionsFixComponent } from './home/fixes/transitions-fix/transition
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './services/auth.guard';
+import { AuthService } from './services/auth.service';
 
 const material = [
   MatToolbarModule
@@ -83,7 +85,7 @@ const material = [
     material,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
