@@ -1,0 +1,29 @@
+.odd {
+    background-color: #87CEFA;
+  }
+  
+  .even {
+    background-color:#00CED1;
+  }
+  
+  .tablerow {
+    color: black;
+    font-size: 23px;
+  }
+
+  .tablediv {
+    height: -webkit-calc(100% - 85px);
+    float: left;
+    width:15%;
+  }
+
+  .cardDiv {
+    height: -webkit-calc(100% - 85px);
+    float: left;
+    width:85%;
+    overflow-y:scroll;
+  }
+
+  .adminHolder {
+    height: -webkit-calc(100% - 85px);
+  }
