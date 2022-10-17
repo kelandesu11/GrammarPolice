@@ -22,7 +22,7 @@ body {
   background-attachment: fixed; /*make sure when scrolling its fixed*/
   padding-top: 35px;
   padding-bottom: 50px;
-  height:100%;
+  height: -webkit-calc(100% - 85px);
 }
 
 :host {
