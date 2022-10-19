@@ -33,6 +33,8 @@ export class SentencesFixComponent implements OnInit {
   sentencesFeedback = ' ';
   sentencesScore: number;
 
+  needHighlight: boolean;
+
   constructor(
     private data: DataService,
     private academic: AcademicStyleService,
@@ -53,6 +55,8 @@ export class SentencesFixComponent implements OnInit {
     return document.getElementById('userinput').innerHTML;
   }
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
 	this.sentences.changeSentencesNumber(0);
     this.data.changeTotalSentences(0);
@@ -106,6 +110,7 @@ export class SentencesFixComponent implements OnInit {
       this.sentencesFix(userText);
     }
   }
+}
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
     this.data.currentTotalSentences.subscribe(
@@ -114,6 +119,7 @@ export class SentencesFixComponent implements OnInit {
 
     // Service
     this.sentencesService();
+    this.needHighlight=true;
   }
 
   // tslint:disable-next-line: typedef

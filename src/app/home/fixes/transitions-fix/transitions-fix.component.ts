@@ -33,6 +33,8 @@ export class TransitionsFixComponent implements OnInit {
   transitionsUserTable: any;
   transitionsAlertColor: any;
 
+  needHighlight: boolean;
+
   constructor(
     private data: DataService,
     private transitions: TransitionsService,
@@ -55,6 +57,8 @@ export class TransitionsFixComponent implements OnInit {
   }
 
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
 	this.transitions.changeTotalTransitions(0);
     this.data.changeTotalSentences(0);
@@ -107,6 +111,7 @@ export class TransitionsFixComponent implements OnInit {
       this.transitionsFix(userText);
     }
   }
+  }
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -125,6 +130,7 @@ export class TransitionsFixComponent implements OnInit {
 
     // Service
     this.transitionsService();
+    this.needHighlight = true;
   }
 
   transitionsFix(userText: string) {

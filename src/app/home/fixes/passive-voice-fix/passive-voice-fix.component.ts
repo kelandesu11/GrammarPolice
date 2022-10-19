@@ -33,6 +33,8 @@ export class PassiveVoiceFixComponent implements OnInit {
   passiveVoiceAlertColor: string;
   passiveVoiceScore: number;
 
+  needHighlight: boolean;
+
   title = 'Passive-Voice-Fix';
 
   constructor(
@@ -57,6 +59,8 @@ export class PassiveVoiceFixComponent implements OnInit {
   }
 
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
     this.data.changeGrade(0);
@@ -109,6 +113,7 @@ export class PassiveVoiceFixComponent implements OnInit {
       this.passiveVoiceFix(userText);
     }
   }
+}
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -118,6 +123,8 @@ export class PassiveVoiceFixComponent implements OnInit {
 
     // Service
     this.passiveVoiceService();
+
+    this.needHighlight=true;
   }
 
   passiveVoiceFix(userText: string) {
