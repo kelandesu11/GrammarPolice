@@ -32,6 +32,23 @@
       <div class="cardDiv">
         <div class="container">
             <div class="row">
+              <div class="" *ngIf="ruleCards.length>0">
+                <form [formGroup]="addRule" (ngSubmit)="add()">
+                  <p>
+                      <mat-form-field appearance="outline">
+                          <mat-label>Rule Check</mat-label>
+                          <input autocomplete="off" formControlName="rule" type="text" matInput placeholder="Display Name">
+                      </mat-form-field>
+                  </p>
+                  <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Feedback</mat-label>
+                        <input autocomplete="off" formControlName="fix" type="text" matInput placeholder="Display Name">
+                    </mat-form-field>
+                </p>
+                  <button mat-raised-button color="primary">Add</button>
+              </form>
+              </div>
               <div class="col-md-3 mx-auto my-5" *ngFor="let card of ruleCards">
                 <mdb-card>
                   <mdb-card-body>
