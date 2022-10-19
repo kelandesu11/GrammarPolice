@@ -9,7 +9,10 @@ import { EggcornService } from '../services/eggcorns.service';
 import { AcademicStyleService } from '../services/academicstyle.service';
 import { NominalizationsService } from '../services/nominalizations.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+<<<<<<< HEAD
 import { AngularFirestore } from "@angular/fire/compat/firestore";
+=======
+>>>>>>> 37605bc0 (Adds backend for adding rules to the html, and the temp rule table.)
 
 type RuleType = { rule: string, suggestion: string }
 
@@ -144,6 +147,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+<<<<<<< HEAD
   passiveLoad(): void {
     this.activeTable = 'passivevoice';
     this.ruleCards = [];
@@ -155,12 +159,20 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+=======
+>>>>>>> 37605bc0 (Adds backend for adding rules to the html, and the temp rule table.)
   add(): void {
     this.ruleCards.push({
       rule: this.addRule.get('rule').value, 
       suggestion: this.addRule.get('fix').value
     });
+<<<<<<< HEAD
     this.firestore.collection(this.activeTable).add({fixed: this.addRule.get('fix').value, wrong: this.addRule.get('rule').value})
+=======
+    if(this.activeTable == 'academic'){
+      //insert method to add to academicStyleTable
+    }
+>>>>>>> 37605bc0 (Adds backend for adding rules to the html, and the temp rule table.)
     this.addRule.reset();
   }
 
