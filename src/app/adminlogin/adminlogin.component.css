@@ -1,0 +1,44 @@
+.sb-topnav{
+    text-align: center;
+
+}
+
+.dropdown-menu{
+    align-items: left;
+}
+/* search text box below */
+.input-group{
+    text-align: center;   
+}
+/* Academic style*/
+.col-xl-6{
+    text-align: left;
+}
+/* Eggscorns*/
+.col-xl-7{
+    text-align: left;
+}
+/* Grammar*/
+.col-xl-8{
+    text-align: left;
+}
+/* Nominalizations*/
+.col-xl-9{
+    text-align: left;
+}
+/* Passive voice*/
+.col-xl-10{
+    text-align: left;
+}
+/* Sentences*/
+.col-xl-11{
+    text-align: left;
+}
+/* Transitions*/
+.col-xl-12{
+    text-align: left;
+}
+/* Wordiness*/
+.col-xl-13{
+    text-align: left;
+}

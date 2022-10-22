@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +27,7 @@ import { NominalizationsFixComponent } from './home/fixes/nominalizations-fix/no
 import { SentencesFixComponent } from './home/fixes/sentences-fix/sentences-fix.component';
 import { EggcornsFixComponent } from './home/fixes/eggcorns-fix/eggcorns-fix.component';
 import { TransitionsFixComponent } from './home/fixes/transitions-fix/transitions-fix.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 const material = [
   MatToolbarModule
@@ -51,7 +52,8 @@ const material = [
     NominalizationsFixComponent,
     SentencesFixComponent,
     EggcornsFixComponent,
-    TransitionsFixComponent
+    TransitionsFixComponent,
+    AdminloginComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,7 @@ const material = [
     material,
     BrowserAnimationsModule
   ],
-  providers: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

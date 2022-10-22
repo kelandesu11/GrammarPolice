@@ -7,6 +7,7 @@ import {DownloadComponent} from './download/download.component';
 import {ResourcesComponent} from './resources/resources.component';
 
 import { WordinessComponent } from './resources/wordiness/wordiness.component';
+
 import { TransitionsComponent } from './resources/transitions/transitions.component';
 import { GrammarComponent } from './resources/grammar/grammar.component';
 import { EggcornsComponent } from './resources/eggcorns/eggcorns.component';
@@ -22,6 +23,8 @@ import { SentencesFixComponent } from './home/fixes/sentences-fix/sentences-fix.
 import { EggcornsFixComponent } from './home/fixes/eggcorns-fix/eggcorns-fix.component';
 import { TransitionsFixComponent } from './home/fixes/transitions-fix/transitions-fix.component';
 import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component:HomeComponent },
@@ -32,6 +35,7 @@ const routes: Routes = [
 
   { path:'resources',component:ResourcesComponent},
 
+  {path:'adminlogin' , component:AdminloginComponent},
 
   { path:'resources/wordiness', component:WordinessComponent },
 
