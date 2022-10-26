@@ -189,18 +189,12 @@ export class WordinessFixComponent implements OnInit {
     //replace with -> span and highlight, and sub span with fixText
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
-<<<<<<< HEAD
-      '<span style="background-color: #FF6363; font-family: Georgia;" >' +
-      text +
-      ' </span>'
-=======
       '<span class="highlight" >' +
         text +
           '<span class="feedbackPopup" >' +
           fixText +
           '</span>' +
         ' </span>'
->>>>>>> highlight-firebae-fix
     );
   }
 }
