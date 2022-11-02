@@ -1,38 +1,35 @@
     <div class="adminHolder">
-    <div class="tablediv">
-        <table>
+    <div class="tableDiv">
+        <table class="dashNav">
           <tbody>
-            <tr class="odd">
-              <td><a class="tablerow">Passive Voice</a></td>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="passiveLoad()">Passive Voice</a></td>
             </tr>
-            <tr class="even">
-              <td><a class="tablerow" (click)="wordinessLoad()">Wordiness</a></td>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="wordinessLoad()">Wordiness</a></td>
             </tr>
-            <tr class="odd">
-              <td><a class="tablerow" (click)="academicLoad()">Academic Style</a></td>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="academicLoad()">Academic Style</a></td>
             </tr>
-            <tr class="even">
-              <td><a class="tablerow" (click)="grammarLoad()">Grammar</a></td>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="grammarLoad()">Grammar</a></td>
             </tr>
-            <tr class="odd">
-              <td><a class="tablerow" (click)="nominalizationsLoad()">Nominalizations</a></td>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="nominalizationsLoad()">Nominalizations</a></td>
             </tr>
-            <tr class="even">
-              <td><a class="tablerow">Sentences</a></td>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="eggcornsLoad()">Eggcorns</a></td>
             </tr>
-            <tr class="odd">
-              <td><a class="tablerow" (click)="eggcornsLoad()">Eggcorns</a></td>
-            </tr>
-            <tr class="even">
-              <td><a class="tablerow" (click)="transitionsLoad()">Transitions</a></td>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="transitionsLoad()">Transitions</a></td>
             </tr>
           </tbody>
         </table>
-      </div>   
+      </div>
       <div class="cardDiv">
         <div class="container">
             <div class="row">
-              <div class="" *ngIf="ruleCards.length>0">
+              <div class="addRuleDiv" *ngIf="ruleCards.length>0">
                 <form [formGroup]="addRule" (ngSubmit)="add()">
                   <p>
                       <mat-form-field appearance="outline">
@@ -49,20 +46,22 @@
                   <button mat-raised-button color="primary">Add</button>
               </form>
               </div>
-              <div class="col-md-3 mx-auto my-5" *ngFor="let card of ruleCards">
-                <mdb-card>
-                  <mdb-card-body>
-                    <mdb-card-title>
+              <div class="col-md-3 mx-auto my-5 rules" *ngFor="let card of ruleCards">
+                <div class="ruleHolder">
+                <mat-card>
+                  <mat-card-body>
+                    <mat-card-title>
                       <h4>{{card.rule}}</h4>
-                    </mdb-card-title>
+                    </mat-card-title>
           
-                    <mdb-card-text>
-                      {{card.suggestion}}
-                    </mdb-card-text>
+                    <mat-card-title>
+                      <h4>{{card.suggestion}}</h4>
+                    </mat-card-title>
           
-                    <button mdbBtn color="primary" (click)="delete(card)">Delete</button>
-                  </mdb-card-body>
-                </mdb-card>
+                    <button mat-raised-button color="primary" (click)="delete(card)">Delete</button>
+                  </mat-card-body>
+                </mat-card>
+              </div>
               </div>
             </div>
           </div>

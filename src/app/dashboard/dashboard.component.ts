@@ -142,6 +142,24 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  passiveLoad(): void {
+    this.activeTable = 'passive';
+    this.ruleCards = [];
+    for(const fix in this.passiveVoiceTable) {
+      this.ruleCards.push ({
+        rule: fix,
+        suggestion: this.passiveVoiceTable[fix]
+      })
+    }
+
+    for(const fix in this.passiveVoiceHelperTable) {
+      this.ruleCards.push ({
+        rule: fix,
+        suggestion: this.passiveVoiceHelperTable[fix]
+      })
+    }
+  }
+
   add(): void {
     this.ruleCards.push({
       rule: this.addRule.get('rule').value, 
