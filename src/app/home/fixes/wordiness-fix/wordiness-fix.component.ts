@@ -12,7 +12,7 @@ import { TransitionsService } from '../../../services/transitions.service';
 @Component({
   selector: 'app-wordiness-fix',
   templateUrl: './wordiness-fix.component.html',
-  styleUrls: ['./wordiness-fix.component.css'],
+  styleUrls: ['../fixes.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class WordinessFixComponent implements OnInit {

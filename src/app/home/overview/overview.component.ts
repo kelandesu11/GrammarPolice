@@ -1,3 +1,4 @@
+import { AcademicStyleFixComponent } from './../fixes/academic-style-fix/academic-style-fix.component';
 import { Component, Input, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../data.service';
@@ -10,6 +11,9 @@ import {EggcornService} from '../../services/eggcorns.service';
 import {NominalizationsService} from '../../services/nominalizations.service';
 import {SentencesService} from '../../services/sentences.service';
 import { transition } from '@angular/animations';
+
+
+
 
 @Component({
   selector: 'app-overview',

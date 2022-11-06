@@ -12,7 +12,7 @@ import { EggcornService } from '../../../services/eggcorns.service';
 @Component({
   selector: 'app-grammar-fix',
   templateUrl: './grammar-fix.component.html',
-  styleUrls: ['./grammar-fix.component.css'],
+  styleUrls: ['../fixes.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class GrammarFixComponent implements OnInit {

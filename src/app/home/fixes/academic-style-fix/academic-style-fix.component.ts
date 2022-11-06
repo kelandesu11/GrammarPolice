@@ -14,7 +14,7 @@ import { TransitionsService } from '../../../services/transitions.service';
 @Component({
   selector: 'app-academic-style-fix',
   templateUrl: './academic-style-fix.component.html',
-  styleUrls: ['./academic-style-fix.component.css'],
+  styleUrls: ['../fixes.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class AcademicStyleFixComponent implements OnInit {

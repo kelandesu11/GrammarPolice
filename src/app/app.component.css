@@ -1,61 +1,26 @@
 .mat-toolbar.mat-primary {
     background: #00704a;
     color: #fff;
-    /* border-left: black groove;
-    border-right: black groove; */
     height: 80px;
   }
-
-  /*.mat-toolbar.mat-primary:hover {
-    background-color: lightblue;
-  
-    color: rgb(255, 255, 255);
-  }
-*/
 .navbar {
     justify-content: space-between;
-}
-
-.highlight {
-  background-color: #EEF43B;
 }
 
 h1, h3 {
   font-size: 18px;
   line-height: 1;
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
 }
-/* 
-.grammark{
-    font-size: 90px;
-    font-weight: 900;
-     color: #FFFFFF;
-    -webkit-text-stroke-width: .25px;
-    /* -webkit-text-stroke-color: #000000; */
-    
-
-
-/* .grammark:hover{
-  color: #409e7f;
-}
-
-.grammark:active {
-  text-decoration: none;
-} */
 
 .linkedpages {
   color: white;
   text-decoration: none;
-  /* border-left: black groove;  */
   display: inline-block;
   width: 110px;
   text-align: center;
   font-size: 13px;
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
 }
 .linkedpages:hover{
-  /* background-color: #409e7f;
-  border-radius: 10px; */
   color: #ADADAD;
 }
 
@@ -68,3 +33,18 @@ h1, h3 {
 a:active {
   color: blue;
 }
+
+.mainDisplay {
+
+  align-items: center;
+
+}
+
+.first {
+  background-color: #f3fef7;
+}
+
+.second {
+  background-color: #f3fef7;
+}
+

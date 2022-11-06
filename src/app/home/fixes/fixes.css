@@ -1,0 +1,90 @@
+.category {
+  margin: 20px 0px;
+  padding: 10px 20px;
+}
+
+.title {
+  font-size: 36px;
+}
+
+.description {
+  font-size: 20px;
+}
+
+.column1 {
+  float: left;
+  width: 65%;
+  padding-left: 20px;
+}
+
+.column2 {
+  float: left;
+  width: 30.5%;
+  background-color: white;
+  padding: 20px;
+}
+
+#userinput {
+  height: 300px;
+  min-height: 100px;
+  width: 96.5%;
+  resize: none;
+  border-width: thick;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.feedback {
+  font-size: 30px;
+}
+
+.alert-box {
+  background-color: #d39898;
+  min-width: 300px;
+  margin-left: 850px;
+  text-align: left;
+  margin-bottom: -92px;
+  padding: 10px;
+  position: relative;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+td {
+  padding-right: 10px;
+}
+
+.box {
+  font-size: 20px;
+}
+
+.highlight {
+  background-color: #d39898;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
+}
+
+.feedbackPopup {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+
+  /* Position the tooltip */
+
+  position: absolute;
+  z-index: 1;
+}
+
+.highlight:hover .feedbackPopup {
+  visibility: visible;
+}
+
+.feedbackPopup .highlight {
+  background-color: black;
+}
+
+.feedbackPopup .highlight .feedbackPopup {
+  visibility: hidden;
+}

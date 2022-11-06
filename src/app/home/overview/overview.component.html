@@ -13,42 +13,42 @@
         </thead>
         <tbody>
           <tr class="odd" [style.background-color]="passiveVoiceAlertColor">
-            <td><a class="tablerow" routerLink="../fixes/passive-voice-fix">Passive Voice</a></td>
+            <td><a class="tablerow" [routerLink]="['', {outlets: {details: 'home/fixes/passive-voice-fix'}}]">Passive Voice</a></td>
             <td>{{ passiveVoiceNumber }}({{passiveVoiceScore}}%)</td>
 
           </tr>
           <tr class="even" [style.background-color]="wordinessAlertColor">
-            <td><a class="tablerow" routerLink="../fixes/wordiness-fix">Wordiness</a></td>
+            <td><a class="tablerow" [routerLink]="['', {outlets: {details: 'home/fixes/wordiness-fix'}}]">Wordiness</a></td>
             <td>{{ wordinessNumber }}({{wordinessScore}}%)</td>
 
           </tr>
           <tr class="odd" [style.background-color]="academicStyleAlertColor">
-            <td><a class="tablerow" routerLink="../fixes/academic-style-fix">Academic Style</a></td>
+            <td><a class="tablerow" [routerLink]="['', {outlets: {details: 'home/fixes/academic-style-fix'}}]">Academic Style</a></td>
             <td>{{ totalNonAcademic }}({{ academicStyleScore }}%)</td>
 
           </tr>
           <tr class="even" [style.background-color]="grammarAlertColor">
-            <td><a class="tablerow" routerLink="../fixes/grammar-fix">Grammar</a></td>
+            <td><a class="tablerow" [routerLink]="['', {outlets: {details: 'home/fixes/grammar-fix'}}]">Grammar</a></td>
             <td>{{ totalGrammar }}({{grammarScore}}%)</td>
 
           </tr>
           <tr class="odd" [style.background-color]="nominalizationsAlertColor">
-            <td><a class="tablerow" routerLink="../fixes/nominalizations-fix">Nominalizations</a></td>
+            <td><a class="tablerow" [routerLink]="['',{outlets: {details: 'home/fixes/nominalizations-fix'}}]">Nominalizations</a></td>
             <td>{{nominalizationsNumber}}({{nominalizationsScore}}%)</td>
 
           </tr>
           <tr class="even" [style.background-color]="sentencesAlertColor">
-            <td><a class="tablerow" routerLink="../fixes/sentences-fix">Sentences</a></td>
+            <td><a class="tablerow" [routerLink]="['', {outlets: {details: 'home/fixes/sentences-fix'}}]">Sentences</a></td>
             <td>{{sentencesNumber}}({{sentencesScore}}%)</td>
 
           </tr>
           <tr class="odd" [style.background-color]="eggcornsAlertColor">
-            <td><a class="tablerow" routerLink="../fixes/eggcorns-fix">Eggcorns</a></td>
+            <td><a class="tablerow" [routerLink]="['', {outlets: {details: 'home/fixes/eggcorns-fix'}}]">Eggcorns</a></td>
             <td>{{totalEggcorns}}({{eggcornsScore}}%)</td>
 
           </tr>
           <tr class="even" [style.background-color]="transitionsAlertColor">
-            <td class="lastRowName"><a class="tablerow" routerLink="../fixes/transitions-fix">Transitions</a></td>
+            <td class="lastRowName"><a class="tablerow" [routerLink]="['', {outlets: {details: 'home/fixes/transitions-fix'}}]">Transitions</a></td>
             <td class="lastRow">{{ totalTransitions }}({{ transitionsScore }}%)</td>
           </tr>
         </tbody>

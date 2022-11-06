@@ -1,61 +1,46 @@
-<mat-toolbar color="white" class="navbar">
-  <a class="linkedpages" routerLink="../../overview">Overview</a>
-  <a class="linkedpages" routerLink="../passive-voice-fix">Passive Voice</a>
-  <a class="linkedpages" routerLink="../wordiness-fix">Wordiness</a>
-  <div on-mouseenter = "reHighlight()"> 
-  <a class="linkedpages" routerLink="../academic-style-fix">Academic Style</a>
-  </div>
-  <a class="linkedpages" routerLink="../grammar-fix">Grammar</a>
-  <a class="linkedpages" routerLink="../nominalizations-fix">Nominalizations</a>
-  <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
-  <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
-  <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
-  <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
-</mat-toolbar>
-
 <body>
-<div class="alert-box" [style.background-color]="academicStyleAlertColor">
-  <h5 class="box">
-    {{ totalNonAcademic }} instances ({{ academicStyleScore }}% of sentences)
-  </h5>
-  <b class="box"> Goal: 1% or less </b>
-</div>
+  <div on-mouseenter="reHighlight()">
+    <div class="alert-box" [style.background-color]="academicStyleAlertColor">
+      <h5 class="box">
+        {{ totalNonAcademic }} instances ({{ academicStyleScore }}% of
+        sentences)
+      </h5>
+      <b class="box"> Goal: 1% or less </b>
+    </div>
 
-<mat-toolbar color="white" class="category">
-  <mat-toolbar-row class="title"><b>Academic Style</b></mat-toolbar-row>
-  <mat-toolbar-row class="description">{{
-    academicStyleFeedback
-  }}</mat-toolbar-row>
-</mat-toolbar>
-<div>
-  <div class="column1">
-   <!-- <button (click)="reHighlight()" class="rehighlight">
-      Highlight Errors
-    </button> -->
-    <p id="userinput" name="userinput">{{ message }}</p>
-    <br />
-  </div>
+    <mat-toolbar color="white" class="category">
+      <mat-toolbar-row class="title"><b>Academic Style</b></mat-toolbar-row>
+      <mat-toolbar-row class="description">{{
+        academicStyleFeedback
+      }}</mat-toolbar-row>
+    </mat-toolbar>
+    <div>
+      <div class="column1">
+        <p id="userinput" name="userinput">{{ message }}</p>
+        <br />
+      </div>
 
-  <div class="column2">
-    <h1 class="feedback">
-      <b>Non Academic Style Found - {{ totalNonAcademic }} instance(s)</b>
-    </h1>
-    <table>
-      <td>
-        <tr *ngFor="let tableData of academicStyleUserTable.find">
-          {{
-            tableData
-          }}
-        </tr>
-      </td>
-      <td>
-        <tr *ngFor="let tableData of academicStyleUserTable.suggestion">
-          {{
-            tableData
-          }}
-        </tr>
-      </td>
-    </table>
+      <div class="column2">
+        <h1 class="feedback">
+          <b>Non Academic Style Found - {{ totalNonAcademic }} instance(s)</b>
+        </h1>
+        <table>
+          <td>
+            <tr *ngFor="let tableData of academicStyleUserTable.find">
+              {{
+                tableData
+              }}
+            </tr>
+          </td>
+          <td>
+            <tr *ngFor="let tableData of academicStyleUserTable.suggestion">
+              {{
+                tableData
+              }}
+            </tr>
+          </td>
+        </table>
+      </div>
+    </div>
   </div>
-</div>
 </body>

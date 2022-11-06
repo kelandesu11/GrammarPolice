@@ -3,11 +3,15 @@
     <div class = "linksHighlight">
         <a class="linkedpages" routerLink="">HOME</a>
         <a class="linkedpages" routerLink="about">ABOUT</a>
-        <a class ="linkedpages" href="https://github.com/markfullmer/grammark">SOURCE CODE</a>
+        <a class="linkedpages" href="https://github.com/markfullmer/grammark">SOURCE CODE</a>
         <a class="linkedpages" routerLink="download">DOWNLOAD</a>
         <a class="linkedpages" routerLink="resources">RESOURCES</a>
         <a class="linkedpages" routerLink="admin">ADMIN</a>
     </div>
 </mat-toolbar>
 
-<router-outlet></router-outlet>
+<div class="mainDisplay">
+    <router-outlet class="first"></router-outlet>
+    <router-outlet class="second" name="details"></router-outlet>
+</div>
+

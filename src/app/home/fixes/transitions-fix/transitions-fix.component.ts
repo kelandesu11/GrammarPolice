@@ -12,7 +12,7 @@ import { TransitionsService } from '../../../services/transitions.service';
 @Component({
   selector: 'app-transitions-fix',
   templateUrl: './transitions-fix.component.html',
-  styleUrls: ['./transitions-fix.component.css'],
+  styleUrls: ['../fixes.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class TransitionsFixComponent implements OnInit {

@@ -13,7 +13,7 @@ import { NominalizationsService } from '../../../services/nominalizations.servic
 @Component({
   selector: 'app-passive-voice-fix',
   templateUrl: './passive-voice-fix.component.html',
-  styleUrls: ['./passive-voice-fix.component.css'],
+  styleUrls: ['../fixes.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class PassiveVoiceFixComponent implements OnInit {

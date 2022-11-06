@@ -12,7 +12,7 @@ import { GrammarService } from '../../../services/grammar.service';
 @Component({
   selector: 'app-nominalizations-fix',
   templateUrl: './nominalizations-fix.component.html',
-  styleUrls: ['./nominalizations-fix.component.css'],
+  styleUrls: ['../fixes.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class NominalizationsFixComponent implements OnInit {

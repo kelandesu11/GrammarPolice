@@ -32,7 +32,6 @@ const routes: Routes = [
 
   { path:'resources',component:ResourcesComponent},
 
-
   { path:'resources/wordiness', component:WordinessComponent },
 
   { path:'resources/transitions', component:TransitionsComponent },
@@ -43,21 +42,21 @@ const routes: Routes = [
 
   { path:'home/overview', component:OverviewComponent },
 
-  { path:'home/fixes/passive-voice-fix', component:PassiveVoiceFixComponent},
+  { path:'home/fixes/passive-voice-fix', component:PassiveVoiceFixComponent, outlet: "details"},
 
-  { path:'home/fixes/wordiness-fix', component:WordinessFixComponent},
+  { path:'home/fixes/wordiness-fix', component:WordinessFixComponent, outlet: "details"},
 
-  { path:'home/fixes/academic-style-fix', component:AcademicStyleFixComponent},
+  { path:'home/fixes/academic-style-fix', component:AcademicStyleFixComponent, outlet: "details"},
 
-  { path:'home/fixes/grammar-fix', component:GrammarFixComponent},
+  { path:'home/fixes/grammar-fix', component:GrammarFixComponent, outlet: "details"},
 
-  { path:'home/fixes/nominalizations-fix', component:NominalizationsFixComponent},
+  { path:'home/fixes/nominalizations-fix', component:NominalizationsFixComponent, outlet: "details"},
 
-  { path:'home/fixes/sentences-fix', component:SentencesFixComponent},
+  { path:'home/fixes/sentences-fix', component:SentencesFixComponent, outlet: "details"},
 
-  { path:'home/fixes/eggcorns-fix', component:EggcornsFixComponent},
+  { path:'home/fixes/eggcorns-fix', component:EggcornsFixComponent, outlet: "details"},
 
-  { path:'home/fixes/transitions-fix', component:TransitionsFixComponent}
+  { path:'home/fixes/transitions-fix', component:TransitionsFixComponent, outlet: "details"}
 ];
 
 @NgModule({

@@ -12,7 +12,7 @@ import { AcademicStyleService } from '../../../services/academicstyle.service';
 @Component({
   selector: 'app-eggcorns-fix',
   templateUrl: './eggcorns-fix.component.html',
-  styleUrls: ['./eggcorns-fix.component.css'],
+  styleUrls: ['../fixes.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class EggcornsFixComponent implements OnInit {

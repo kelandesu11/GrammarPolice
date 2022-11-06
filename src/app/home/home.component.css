@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
-
 body {
-  /* background-color: #2F6E4D; */
-  background-image: linear-gradient(#F3FFF6, #2F6E4D);
-  font-family: 'Work Sans', sans-serif;
+  background-color: #2F6E4D;
 }
 
 .column {
@@ -58,8 +54,6 @@ body {
 
 .c2 {
   background-color: #b1b1bd;
-  border-color: black;
-  border: groove;
   padding-left: 20px;
   margin-bottom: 19px;
 }
