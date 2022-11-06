@@ -1,4 +1,4 @@
-import { stringify } from '@angular/compiler/src/util';
+// import { stringify } from '@angular/compiler/src/util';
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NavigationExtras, Router, RouterLink } from '@angular/router';
 import { DataService } from '../data.service';
@@ -697,7 +697,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.sentencesScore = (this.sentencesNumber / this.totalSentences) * 100;
-    if (this.sentencesScore === NaN || this.sentencesScore === Infinity) {
+    if (Number.isNaN(this.sentencesScore) || this.sentencesScore === Infinity) {
       this.sentencesScore = 0;
     }
     try {
