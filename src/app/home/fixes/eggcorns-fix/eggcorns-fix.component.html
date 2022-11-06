@@ -1,3 +1,4 @@
+<div on-mouseenter = "reHighlight()">
 <mat-toolbar color="white" class="navbar">
   <a class="linkedpages" routerLink="../../overview">Overview</a>
   <a class="linkedpages" routerLink="../passive-voice-fix">Passive Voice</a>
@@ -6,17 +7,14 @@
   <a class="linkedpages" routerLink="../grammar-fix">Grammar</a>
   <a class="linkedpages" routerLink="../nominalizations-fix">Nominalizations</a>
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
-  <div on-mouseenter = "reHighlight()">
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
-  </div>
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
   <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
 
 <body>
 <div class="alert-box" [style.background-color]="eggcornsAlertColor">
-  <h5 class="box">{{ totalEggcorns }} instances ({{ eggcornsScore }}% of sentences)</h5>
-    <b class="box">Goal: 0 errors </b>
+  <b class="box">{{ totalEggcorns }} instances ({{ eggcornsScore }}% of sentences)</b>
 </div>
 
 <mat-toolbar color="white" class="category">
@@ -44,3 +42,4 @@
   </div>
 </div>
 </body>
+</div>

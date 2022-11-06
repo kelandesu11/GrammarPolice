@@ -33,6 +33,8 @@ export class TransitionsFixComponent implements OnInit {
   transitionsUserTable: any;
   transitionsAlertColor: any;
 
+  needHighlight: boolean;
+
   constructor(
     private data: DataService,
     private transitions: TransitionsService,
@@ -55,6 +57,8 @@ export class TransitionsFixComponent implements OnInit {
   }
 
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
 	this.transitions.changeTotalTransitions(0);
     this.data.changeTotalSentences(0);
@@ -107,6 +111,7 @@ export class TransitionsFixComponent implements OnInit {
       this.transitionsFix(userText);
     }
   }
+  }
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -125,6 +130,7 @@ export class TransitionsFixComponent implements OnInit {
 
     // Service
     this.transitionsService();
+    this.needHighlight = true;
   }
 
   transitionsFix(userText: string) {
@@ -135,11 +141,11 @@ export class TransitionsFixComponent implements OnInit {
         this.transitions.changeTotalTransitions(this.totalTransitions + 1);
         // add transition in user text into an array
         this.transitionsUserTable.find.push(
-          '• ' + fix + ' ⟶ ' + this.transitionsTable[fix]
+          '• ' + fix
         );
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
         // this.transitionsUserTable.suggestion.push(" ⟶ " + this.transitionsTable[fix]);
-        this.highlight(fix, this.transitionsTable[fix]);
+        this.highlight(fix);
       }
     }
     //calcutale score
@@ -157,18 +163,18 @@ export class TransitionsFixComponent implements OnInit {
       if (this.transitionsScore == 0) {
         this.transitionsAlertColor = 'red';
         this.transitionsFeedback =
-          'Your writing seems to have no transition word';
+          'Your writing seems to have no transition words.';
       } else if (this.transitionsScore <= 10) {
         this.transitionsFeedback =
-          'The number of transition words in your writing seems low';
-        this.transitionsAlertColor = 'orange';
+          'The number of transition words in your writing seems low.';
+        this.transitionsAlertColor = 'red';
       } else if (this.transitionsScore <= 80) {
         this.transitionsFeedback =
-          'Woot! Your writing seems to have a good proportion of transitions';
+          'Woot! Your writing seems to have a good proportion of transitions.';
         this.transitionsAlertColor = 'green';
       } else {
         this.transitionsFeedback =
-          "Woot! Your writing seems to have a lot of transitions. Make sure you're not overusing transition words";
+          "Woot! Your writing seems to have a lot of transitions. Make sure you're not overusing transition words.";
         this.transitionsAlertColor = 'green';
       }
       if (this.totalSentences === 0) {
@@ -230,7 +236,7 @@ export class TransitionsFixComponent implements OnInit {
     );
   }
 
-  highlight(text, fixText) {
+  highlight(text) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
 
@@ -242,9 +248,6 @@ export class TransitionsFixComponent implements OnInit {
       re,
       '<span class="highlight" >' +
       text +
-      '<span class="feedbackPopup" >' +
-      fixText +
-      '</span>' +
       ' </span>'
     );
   }

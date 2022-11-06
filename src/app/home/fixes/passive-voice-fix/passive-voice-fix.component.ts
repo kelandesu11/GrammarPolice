@@ -33,6 +33,8 @@ export class PassiveVoiceFixComponent implements OnInit {
   passiveVoiceAlertColor: string;
   passiveVoiceScore: number;
 
+  needHighlight: boolean;
+
   title = 'Passive-Voice-Fix';
 
   constructor(
@@ -57,6 +59,8 @@ export class PassiveVoiceFixComponent implements OnInit {
   }
 
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
     this.data.changeGrade(0);
@@ -109,6 +113,7 @@ export class PassiveVoiceFixComponent implements OnInit {
       this.passiveVoiceFix(userText);
     }
   }
+}
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -118,6 +123,8 @@ export class PassiveVoiceFixComponent implements OnInit {
 
     // Service
     this.passiveVoiceService();
+
+    this.needHighlight=true;
   }
 
   passiveVoiceFix(userText: string) {
@@ -133,13 +140,13 @@ export class PassiveVoiceFixComponent implements OnInit {
             this.passiveVoiceNumber + 1
           );
           this.passiveVoiceUserTable.find.push(
-            '• ' + compareString + ' ⟶ ' + this.passiveVoiceTable[fix]
+            '• ' + compareString
           );
           // this.passiveVoiceUserTable.suggestion.push(" ⟶ " + this.passiveVoiceTable[fix]);
           this.passivevoice.changePassiveVoiceUserTable(
             this.passiveVoiceUserTable
           );
-          this.highlight(fix, this.passiveVoiceTable[fix]);
+          this.highlight(fix);
         }
       }
     }
@@ -149,7 +156,7 @@ export class PassiveVoiceFixComponent implements OnInit {
       this.passiveVoiceScore = 0;
     }
     try {
-      if (this.passiveVoiceScore > 10) {
+      if (this.passiveVoiceScore > 0) {
         this.passiveVoiceFeedback =
           'Generally, writing is clearer in active voice.';
         this.passiveVoiceAlertColor = 'red';
@@ -201,7 +208,7 @@ export class PassiveVoiceFixComponent implements OnInit {
     );
   }
 
-  highlight(text, fixText) {
+  highlight(text) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
 
@@ -213,9 +220,6 @@ export class PassiveVoiceFixComponent implements OnInit {
       re,
       '<span class="highlight" >' +
       text +
-      '<span class="feedbackPopup" >' +
-      fixText +
-      '</span>' +
       ' </span>'
     );
   }

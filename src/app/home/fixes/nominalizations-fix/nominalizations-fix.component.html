@@ -1,12 +1,11 @@
+<div on-mouseenter = "reHighlight()">
 <mat-toolbar color="white" class="navbar">
   <a class="linkedpages" routerLink="../../overview">Overview</a>
   <a class="linkedpages" routerLink="../passive-voice-fix">Passive Voice</a>
   <a class="linkedpages" routerLink="../wordiness-fix">Wordiness</a>
   <a class="linkedpages" routerLink="../academic-style-fix">Academic Style</a>
   <a class="linkedpages" routerLink="../grammar-fix">Grammar</a>
-  <div on-mouseenter = "reHighlight()">
   <a class="linkedpages" routerLink="../nominalizations-fix">Nominalizations</a>
-  </div>
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
@@ -15,8 +14,7 @@
 
 <body>
 <div class="alert-box" [style.background-color]="nominalizationsAlertColor">
-  <h5 class="box">{{ nominalizationsNumber }} instances ({{ nominalizationsScore }}% of words)</h5>
-    <b class="box">Goal: 6% or less </b>
+  <b class="box">{{ nominalizationsNumber }} instances ({{ nominalizationsScore }}% of words)</b>
 </div>
 
 <mat-toolbar color="white" class="category">
@@ -26,6 +24,18 @@
 
 <div>
   <div class="column1">
+    <mat-card *ngIf="nominalizationsScore>6" class="inDepth">
+      <mat-card-title>Generic Feedback</mat-card-title>
+      <mat-card-content>
+        Try to use more words in their root form.
+        <b>Example:</b>
+        <ul>
+          <li><b>Nominalized usage: </b>The <mark>distribution</mark> of <mark>monetization</mark> will show <mark>financial</mark> <mark>improvement</mark>.</li> 
+          <li><b>Root form usage: </b><mark>Finances</mark> will <mark>improve</mark> if we <mark>distribute</mark> <mark>money</mark>.</li>
+        </ul>
+        Pick a number of the more glaringly obvious nominalized forms below and ask yourself, "How can I say the same thing with a root form word?"
+      </mat-card-content>
+    </mat-card>
     <!-- <button (click)="reHighlight()" class="rehighlight">Highlight Errors</button> -->
     <p id="userinput" name="userinput">{{ message }}</p>
     <br>
@@ -44,3 +54,4 @@
   </div>
 </div>
 </body>
+</div>

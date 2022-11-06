@@ -276,7 +276,7 @@ export class HomeComponent implements OnInit {
       this.wordinessScore = 0;
     }
     try {
-      if (this.wordinessScore > 2) {
+      if (this.wordinessScore > 0) {
         this.wordinessFeedback = "Your writing seems too wordy. Why use 3 words when you can say it with 1?";
         this.wordinessAlertColor = "red";
       }
@@ -330,7 +330,7 @@ export class HomeComponent implements OnInit {
       this.passiveVoiceScore = 0;
     }
     try {
-      if (this.passiveVoiceScore > 10) {
+      if (this.passiveVoiceScore > 0) {
         this.passiveVoiceFeedback = "Generally, writing is clearer in active voice.";
         this.passiveVoiceAlertColor = "red";
       }
@@ -384,7 +384,7 @@ export class HomeComponent implements OnInit {
         this.transitionsFeedback = "Your writing seems to have no transition word";
       } else if (this.transitionsScore <= 10) {
         this.transitionsFeedback = "The number of transition words in your writing seems low";
-        this.transitionsAlertColor = "orange";
+        this.transitionsAlertColor = "red";
       } else if (this.transitionsScore <= 80) {
         this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
         this.transitionsAlertColor = "green";
@@ -445,7 +445,7 @@ export class HomeComponent implements OnInit {
       this.academicStyleScore= 0;
     }
     try {
-      if (this.academicStyleScore > 1) {
+      if (this.academicStyleScore > 0) {
         this.academicStyleAlertColor = "red";
         this.academicStyleFeedback = "Your writing may contain language that is either too casual or too extreme for academic discourse.";
       }
@@ -545,8 +545,8 @@ export class HomeComponent implements OnInit {
         this.eggcornsAlertColor = "green";
         this.eggcornsFeedback = "Great job Your writing seems to have no Eggcorns.";
       } else if (this.eggcornsScore <= 5) {
-        this.eggcornsFeedback = " Good job the number of Eggcorns words in your writing seems low.";
-        this.eggcornsAlertColor = "orange";
+        this.eggcornsFeedback = "Almost there! The number of Eggcorns words in your writing seems low.";
+        this.eggcornsAlertColor = "red";
       } else if (this.eggcornsScore <= 10) {
         this.eggcornsFeedback = "Your writing seems to have a lot of eggcorns.";
         this.eggcornsAlertColor = "red";
@@ -692,7 +692,7 @@ export class HomeComponent implements OnInit {
       this.sentencesScore = 0;
     }
     try {
-      if (this.sentencesScore > 2) {
+      if (this.sentencesScore > 0) {
         this.sentencesFeedback = "Hmmm. Your writing may have some sentence-level issues. Check the list below for potential fragments or run-ons.";
         this.sentencesAlertColor = "red";
       }

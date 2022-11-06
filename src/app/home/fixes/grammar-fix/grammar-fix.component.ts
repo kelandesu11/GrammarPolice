@@ -33,6 +33,8 @@ export class GrammarFixComponent implements OnInit {
   grammarAlertColor: any;
   grammarScore: number;
 
+  needHighlight: boolean;
+
   constructor(
     private data: DataService,
     private grammar: GrammarService,
@@ -53,6 +55,8 @@ export class GrammarFixComponent implements OnInit {
     return document.getElementById('userinput').innerHTML;
   }
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
     this.data.changeGrade(0);
@@ -105,6 +109,7 @@ export class GrammarFixComponent implements OnInit {
       this.grammarFix(userText);
     }
   }
+}
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -123,6 +128,8 @@ export class GrammarFixComponent implements OnInit {
 
     // Services
     this.grammarService();
+
+    this.needHighlight=true;
   }
   grammarFix(userText: string) {
     // find grammar traps in user text

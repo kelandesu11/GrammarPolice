@@ -1,8 +1,7 @@
+<div on-mouseenter = "reHighlight()">
 <mat-toolbar color="white" class="navbar">
   <a class="linkedpages" routerLink="../../overview">Overview</a>
-  <div on-mouseenter = "reHighlight()">
   <a class="linkedpages" routerLink="../passive-voice-fix">Passive Voice</a>
-  </div>
   <a class="linkedpages" routerLink="../wordiness-fix">Wordiness</a>
   <a class="linkedpages" routerLink="../academic-style-fix">Academic Style</a>
   <a class="linkedpages" routerLink="../grammar-fix">Grammar</a>
@@ -15,8 +14,7 @@
 
 <body>
 <div class="alert-box" [style.background-color]="passiveVoiceAlertColor">
-  <h5 class="box">{{ passiveVoiceNumber }} instances ({{ passiveVoiceScore }}% of sentences)</h5>
-    <b class="box">Goal: 10% or less </b>
+  <b class="box">{{ passiveVoiceNumber }} instances ({{ passiveVoiceScore }}% of sentences)</b>
 </div>
 
 <mat-toolbar color="white" class="category">
@@ -26,6 +24,23 @@
 
 <div>
   <div class="column1">
+    <mat-card *ngIf="passiveVoiceScore>0" class="inDepth">
+      <mat-card-title>Generic Feedback</mat-card-title>
+      <mat-card-content>
+        <b>Compare:</b>
+        <ul>
+          <li>"Mark ate Planet Mars." (active)</li> 
+          <li>"Planet Mars was eaten by Mark" (passive)</li>
+        </ul>
+        <b>What to do:</b><br>
+        Think "who did what", not "what was done by whom"(you\'ll probably need to reverse the sentence order). In grammar-speak, avoid <i>is, was, were or be, being, been</i> followed by a past tense verb.
+        <br><b>Example fixes</b>
+        <ul>
+          <li>it <mark><del>is</del> accept<del>ed</del></mark> that... --> we accept that...</li>
+          <li>needs to <mark><del>be</del> fund<del>ed</del></mark> by Britain... --> Britain needs to fund...</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
     <!-- <button (click)="reHighlight()" class="rehighlight">Highlight Errors</button> -->
     <p id="userinput" name="userinput">{{ message }}</p>
     <br>
@@ -44,3 +59,4 @@
   </div>
 </div>
 </body>
+</div>

@@ -35,6 +35,8 @@ export class AcademicStyleFixComponent implements OnInit {
   academicStyleUserTable: any;
   academicStyleAlertColor: any;
 
+  needHighlight: boolean;
+
   constructor(
     private data: DataService,
     private academic: AcademicStyleService,
@@ -57,6 +59,8 @@ export class AcademicStyleFixComponent implements OnInit {
   }
 
   reHighlight(): void {
+    if(this.needHighlight) {
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
 	this.academic.changeTotalNonAcademic(0);
     this.data.changeTotalSentences(0);
@@ -111,6 +115,7 @@ export class AcademicStyleFixComponent implements OnInit {
       this.academicStyleFix(userText);
     }
   }
+}
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -129,6 +134,8 @@ export class AcademicStyleFixComponent implements OnInit {
 
     // Service
     this.academicStyleService();
+
+    this.needHighlight=true;
   }
 
   academicStyleFix(userText: string) {
@@ -214,7 +221,7 @@ export class AcademicStyleFixComponent implements OnInit {
       this.academicStyleScore = 0;
     }
     try {
-      if (this.academicStyleScore > 1) {
+      if (this.academicStyleScore > 0) {
         this.academicStyleAlertColor = 'red';
         this.academicStyleFeedback =
           'Your writing may contain language that is either too casual or too extreme for academic discourse.';

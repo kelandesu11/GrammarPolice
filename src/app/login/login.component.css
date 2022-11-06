@@ -1,0 +1,53 @@
+body {
+  /* background-color: #2F6E4D; */
+  background-image: linear-gradient(#F3FFF6, #2F6E4D);
+  background: url("../home/backgroundgradient.jpg");
+  font-family: 'Work Sans', sans-serif;
+  width: 100%;
+}
+
+.column {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#textboxBackground {
+  width: 100%;
+  background: url("../home/backgroundgradient.jpg");
+  margin-top: 0%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; /*make sure when scrolling its fixed*/
+  padding-top: 35px;
+  padding-bottom: 50px;
+  height: -webkit-calc(100% - 85px);
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: -webkit-calc(100% - 85px);
+  }
+.mat-card{
+  margin:auto;
+  background-color: #00704a;
+  border:3px solid black;
+  min-width:300px;
+  max-width: 300px;
+}
+
+#formHolder{
+  background-color:white;
+  border:5px solid #00704a;
+  border-radius:10px;
+  padding:5px 5px 5px 5px;
+  text-align:center;
+}
+
+.mat-raised-button.mat-primary{
+  background-color: #85C446;
+  color: black;
+}
