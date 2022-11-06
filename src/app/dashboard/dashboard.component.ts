@@ -8,7 +8,7 @@ import { GrammarService } from '../services/grammar.service';
 import { EggcornService } from '../services/eggcorns.service';
 import { AcademicStyleService } from '../services/academicstyle.service';
 import { NominalizationsService } from '../services/nominalizations.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 
 type RuleType = { rule: string, suggestion: string }
 
@@ -61,9 +61,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.ruleCards = [];
-    this.addRule = new FormGroup({
-      'rule': new FormControl('', Validators.required),
-      'fix': new FormControl('', Validators.required)
+    this.addRule = new UntypedFormGroup({
+      'rule': new UntypedFormControl('', Validators.required),
+      'fix': new UntypedFormControl('', Validators.required)
     });
     this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
     this.wordiness.currentWordinessTable.subscribe(wordinessTable => this.wordinessTable = wordinessTable);
