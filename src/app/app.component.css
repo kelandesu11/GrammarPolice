@@ -31,20 +31,14 @@ h1, h3 {
 }
 
 a:active {
-  color: blue;
+  color: #ADADAD;
 }
 
 .mainDisplay {
-
-  align-items: center;
-
+  height: auto;
+  width: 100vw;
+  display: flex;
 }
 
-.first {
-  background-color: #f3fef7;
-}
 
-.second {
-  background-color: #f3fef7;
-}
 

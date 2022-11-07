@@ -30,7 +30,7 @@ mark {
   cursor: default;
 }
 
-.column1 {
+.aboutcolumn1 {
   float: left;
   width: 60%;
   padding: 20px;
@@ -41,7 +41,7 @@ mark {
   
 }
 
-.column2 {
+.aboutcolumn2 {
   float: left;
   width: 35%;
   max-width: 350px;

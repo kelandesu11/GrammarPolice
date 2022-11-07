@@ -234,24 +234,24 @@ export class HomeComponent implements OnInit {
     if (this.totalSentences <= 4) {
       this.grade = 0;
       this.gradeFeedback = 'You must enter at least 5 sentences to get a grade';
-      this.gradeAlertColor = 'red';
+      this.gradeAlertColor = '#d39898';
     }
     else {
       if (this.grade < 70) {
         this.gradeFeedback = 'Your writing seems to have many grammar errors';
-        this.gradeAlertColor = 'red';
+        this.gradeAlertColor = '#d39898';
       }
       else if (this.grade < 80) {
         this.gradeFeedback = 'Your writing seems to have a lot of grammar errors';
-        this.gradeAlertColor = 'orange';
+        this.gradeAlertColor = '#FFD485';
       }
       else if (this.grade < 90) {
         this.gradeFeedback = 'Good Job! The number of grammar errors seems low';
-        this.gradeAlertColor = 'orange';
+        this.gradeAlertColor = '#FFD485';
       }
       else {
         this.gradeFeedback = 'Great Job!';
-        this.gradeAlertColor = 'green';
+        this.gradeAlertColor = '#98D39B';
       }
     }
 
@@ -278,11 +278,11 @@ export class HomeComponent implements OnInit {
     try {
       if (this.wordinessScore > 2) {
         this.wordinessFeedback = "Your writing seems too wordy. Why use 3 words when you can say it with 1?";
-        this.wordinessAlertColor = "red";
+        this.wordinessAlertColor = "#d39898";
       }
       else {
         this.wordinessFeedback = "Woohoo! Your writing seems concise, precise, and snappy. George Orwell would be proud.";
-        this.wordinessAlertColor = "green";
+        this.wordinessAlertColor = "#98D39B";
       }
       if (this.totalSentences === 0) {
         throw new Error("");
@@ -290,7 +290,7 @@ export class HomeComponent implements OnInit {
     }
     catch (e) {
       this.wordinessFeedback = "Make sure you enter at least one sentence.";
-      this.wordinessAlertColor = "orange";
+      this.wordinessAlertColor = "#FFD485";
       this.wordinessScore = 0;
     }
     this.wordiness.changeWordinessFeedback(this.wordinessFeedback);
@@ -332,11 +332,11 @@ export class HomeComponent implements OnInit {
     try {
       if (this.passiveVoiceScore > 10) {
         this.passiveVoiceFeedback = "Generally, writing is clearer in active voice.";
-        this.passiveVoiceAlertColor = "red";
+        this.passiveVoiceAlertColor = "#d39898";
       }
       else {
         this.passiveVoiceFeedback = "Your writing passed the criterion for passive sentences. Congrats!";
-        this.passiveVoiceAlertColor = "green";
+        this.passiveVoiceAlertColor = "#98D39B";
       }
       if (this.totalSentences === 0) {
         throw new Error("");
@@ -344,7 +344,7 @@ export class HomeComponent implements OnInit {
     }
     catch (e) {
       this.passiveVoiceFeedback = "Make sure you enter at least one sentence.";
-      this.passiveVoiceAlertColor = "orange";
+      this.passiveVoiceAlertColor = "#FFD485";
       this.passiveVoiceScore = 0;
     }
     this.passivevoice.changePassiveVoiceFeedback(this.passiveVoiceFeedback);
@@ -380,17 +380,17 @@ export class HomeComponent implements OnInit {
     }
     try {
       if (this.transitionsScore == 0) {
-        this.transitionsAlertColor = "red";
+        this.transitionsAlertColor = "#d39898";
         this.transitionsFeedback = "Your writing seems to have no transition word";
       } else if (this.transitionsScore <= 10) {
         this.transitionsFeedback = "The number of transition words in your writing seems low";
-        this.transitionsAlertColor = "orange";
+        this.transitionsAlertColor = "#FFD485";
       } else if (this.transitionsScore <= 80) {
         this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
-        this.transitionsAlertColor = "green";
+        this.transitionsAlertColor = "#98D39B";
       } else {
         this.transitionsFeedback = "Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
-        this.transitionsAlertColor = "green";
+        this.transitionsAlertColor = "#98D39B";
       }
       if (this.totalSentences === 0) {
         throw new Error("");
@@ -398,7 +398,7 @@ export class HomeComponent implements OnInit {
     }
     catch (e) {
       this.transitionsFeedback = "Make sure you enter at least one sentence.";
-      this.transitionsAlertColor = "orange";
+      this.transitionsAlertColor = "#FFD485";
       this.transitionsScore = 0;
     }
     this.transitions.changeTransitionsScore(Math.round(this.transitionsScore * 10) / 10);
@@ -446,11 +446,11 @@ export class HomeComponent implements OnInit {
     }
     try {
       if (this.academicStyleScore > 1) {
-        this.academicStyleAlertColor = "red";
+        this.academicStyleAlertColor = "#d39898";
         this.academicStyleFeedback = "Your writing may contain language that is either too casual or too extreme for academic discourse.";
       }
       else {
-        this.academicStyleAlertColor = "green";
+        this.academicStyleAlertColor = "#98D39B";
         this.academicStyleFeedback = "Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.";
       }
       if (this.totalSentences === 0) {
@@ -459,7 +459,7 @@ export class HomeComponent implements OnInit {
     }
     catch(e) {
       this.academicStyleFeedback = "Make sure you enter at least one sentence.";
-      this.academicStyleAlertColor = "orange";
+      this.academicStyleAlertColor = "#FFD485";
       this.academicStyleScore = 0;
     }
     if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
@@ -495,12 +495,12 @@ export class HomeComponent implements OnInit {
     }
     try {
       if (this.grammarScore == 0) {
-        this.grammarAlertColor = "green";
+        this.grammarAlertColor = "#98D39B";
         this.grammarFeedback = "Woohoo! We didn't find any obvious grammark errors. However, " +
           "beware: Grammark does not check for fragments, comma splices, subject-verb errors, " +
           "number and pronoun problems. What's the best way to find grammar errors? Read your writing aloud.";
       } else if (this.grammarScore > 0) {
-        this.grammarAlertColor = "red";
+        this.grammarAlertColor = "#d39898";
         this.grammarFeedback = "Your writing includes words or phrases usually considered to be grammar errors";
       }
       if (this.totalSentences === 0) {
@@ -509,7 +509,7 @@ export class HomeComponent implements OnInit {
     }
     catch (e) {
       this.grammarFeedback = "Make sure you enter at least one sentence.";
-      this.grammarAlertColor = "orange";
+      this.grammarAlertColor = "#FFD485";
       this.grammarScore = 0;
     }
     this.grammar.changeGrammarScore(Math.round(this.grammarScore * 10) / 10);
@@ -542,17 +542,17 @@ export class HomeComponent implements OnInit {
     }
     try {
       if (this.eggcornsScore == 0) {
-        this.eggcornsAlertColor = "green";
+        this.eggcornsAlertColor = "#98D39B";
         this.eggcornsFeedback = "Great job Your writing seems to have no Eggcorns.";
       } else if (this.eggcornsScore <= 5) {
         this.eggcornsFeedback = " Good job the number of Eggcorns words in your writing seems low.";
-        this.eggcornsAlertColor = "orange";
+        this.eggcornsAlertColor = "#FFD485";
       } else if (this.eggcornsScore <= 10) {
         this.eggcornsFeedback = "Your writing seems to have a lot of eggcorns.";
-        this.eggcornsAlertColor = "red";
+        this.eggcornsAlertColor = "#d39898";
       } else {
         this.eggcornsFeedback = "Your writing seems to have many eggcorns. Make sure you\'re not using eggcorns.";
-        this.eggcornsAlertColor = "red";
+        this.eggcornsAlertColor = "#d39898";
       }
       if (this.totalSentences === 0) {
         throw new Error("");
@@ -560,7 +560,7 @@ export class HomeComponent implements OnInit {
     }
     catch (e) {
       this.eggcornsFeedback = "Make sure you enter at least one sentence.";
-      this.eggcornsAlertColor = "orange";
+      this.eggcornsAlertColor = "#FFD485";
       this.eggcornsScore = 0;
     }
     this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore * 10) / 10);
@@ -607,11 +607,11 @@ export class HomeComponent implements OnInit {
     try {
       if (this.nominalizationsScore <= 6) {
         this.nominalizationsFeedback = "Rock on. Your writing has a reasonable number of \"nominalized\" word forms, highlighted below. You probably don't need to reduce these any further.";
-        this.nominalizationsAlertColor = "green";
+        this.nominalizationsAlertColor = "#98D39B";
       }
       else {
         this.nominalizationsFeedback = "Most of the words below are perfectly acceptable. However, you use many of these \"nominalized\" (non root-form) words. They bog down writing and decrease readability.";
-        this.nominalizationsAlertColor = "red";
+        this.nominalizationsAlertColor = "#d39898";
       }
       if (this.totalSentences === 0) {
         throw new Error("");
@@ -619,7 +619,7 @@ export class HomeComponent implements OnInit {
     }
     catch(e) {
       this.nominalizationsFeedback = "Make sure you enter at least one sentence.";
-      this.nominalizationsAlertColor = "orange";
+      this.nominalizationsAlertColor = "#FFD485";
       this.nominalizationsScore = 0;
     }
     this.nominalizations.changeNominalizationsFeedback(this.nominalizationsFeedback);
@@ -694,11 +694,11 @@ export class HomeComponent implements OnInit {
     try {
       if (this.sentencesScore > 2) {
         this.sentencesFeedback = "Hmmm. Your writing may have some sentence-level issues. Check the list below for potential fragments or run-ons.";
-        this.sentencesAlertColor = "red";
+        this.sentencesAlertColor = "#d39898";
       }
       else {
         this.sentencesFeedback = "Bueno! Your sentences don't show any glaring errors.";
-        this.sentencesAlertColor = "green";
+        this.sentencesAlertColor = "#98D39B";
       }
       if (this.totalSentences === 0) {
         throw new Error("");
@@ -706,7 +706,7 @@ export class HomeComponent implements OnInit {
     }
     catch(e) {
       this.sentencesFeedback = "Make sure you enter at least one sentence.";
-      this.sentencesAlertColor = "orange";
+      this.sentencesAlertColor = "#FFD485";
       this.sentencesScore = 0;
     }
     this.sentences.changeSentencesFeedback(this.sentencesFeedback);

@@ -155,28 +155,28 @@ export class TransitionsFixComponent implements OnInit {
     }
     try {
       if (this.transitionsScore == 0) {
-        this.transitionsAlertColor = 'red';
+        this.transitionsAlertColor = '#d39898';
         this.transitionsFeedback =
           'Your writing seems to have no transition word';
       } else if (this.transitionsScore <= 10) {
         this.transitionsFeedback =
           'The number of transition words in your writing seems low';
-        this.transitionsAlertColor = 'orange';
+        this.transitionsAlertColor = '#FFD485';
       } else if (this.transitionsScore <= 80) {
         this.transitionsFeedback =
           'Woot! Your writing seems to have a good proportion of transitions';
-        this.transitionsAlertColor = 'green';
+        this.transitionsAlertColor = '#98D39B';
       } else {
         this.transitionsFeedback =
           "Woot! Your writing seems to have a lot of transitions. Make sure you're not overusing transition words";
-        this.transitionsAlertColor = 'green';
+        this.transitionsAlertColor = '#98D39B';
       }
       if (this.totalSentences === 0) {
         throw new Error('');
       }
     } catch (e) {
       this.transitionsFeedback = 'Make sure you enter at least one sentence.';
-      this.transitionsAlertColor = 'orange';
+      this.transitionsAlertColor = '#FFD485';
       this.transitionsScore = 0;
     }
     // if (this.transitionsScore == 0) {

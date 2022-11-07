@@ -152,18 +152,18 @@ export class PassiveVoiceFixComponent implements OnInit {
       if (this.passiveVoiceScore > 10) {
         this.passiveVoiceFeedback =
           'Generally, writing is clearer in active voice.';
-        this.passiveVoiceAlertColor = 'red';
+        this.passiveVoiceAlertColor = '#d39898';
       } else {
         this.passiveVoiceFeedback =
           'Your writing passed the criterion for passive sentences. Congrats!';
-        this.passiveVoiceAlertColor = 'green';
+        this.passiveVoiceAlertColor = '#98D39B';
       }
       if (this.totalSentences === 0) {
         throw new Error('');
       }
     } catch (e) {
       this.passiveVoiceFeedback = 'Make sure you enter at least one sentence.';
-      this.passiveVoiceAlertColor = 'orange';
+      this.passiveVoiceAlertColor = '#FFD485';
       this.passiveVoiceScore = 0;
     }
     this.passivevoice.changePassiveVoiceFeedback(this.passiveVoiceFeedback);

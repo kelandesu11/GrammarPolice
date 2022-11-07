@@ -215,11 +215,11 @@ export class AcademicStyleFixComponent implements OnInit {
     }
     try {
       if (this.academicStyleScore > 1) {
-        this.academicStyleAlertColor = 'red';
+        this.academicStyleAlertColor = '#d39898';
         this.academicStyleFeedback =
           'Your writing may contain language that is either too casual or too extreme for academic discourse.';
       } else {
-        this.academicStyleAlertColor = 'green';
+        this.academicStyleAlertColor = '#98D39B';
         this.academicStyleFeedback =
           'Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.';
       }
@@ -228,7 +228,7 @@ export class AcademicStyleFixComponent implements OnInit {
       }
     } catch (e) {
       this.academicStyleFeedback = 'Make sure you enter at least one sentence.';
-      this.academicStyleAlertColor = 'orange';
+      this.academicStyleAlertColor = '#FFD485';
       this.academicStyleScore = 0;
     }
     if (

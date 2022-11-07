@@ -142,27 +142,27 @@ export class EggcornsFixComponent implements OnInit {
     this.eggcornsScore = (this.totalEggcorns / this.totalSentences) * 100;
     try {
       if (this.eggcornsScore == 0) {
-        this.eggcornsAlertColor = 'green';
+        this.eggcornsAlertColor = '#98D39B';
         this.eggcornsFeedback =
           'Great job! Your writing seems to have no Eggcorns.';
       } else if (this.eggcornsScore <= 5) {
         this.eggcornsFeedback =
           ' Good job, the number of Eggcorns words in your writing seems low';
-        this.eggcornsAlertColor = 'orange';
+        this.eggcornsAlertColor = '#FFD485';
       } else if (this.eggcornsScore <= 10) {
         this.eggcornsFeedback = 'Your writing seems to have a lot of eggcorns';
-        this.eggcornsAlertColor = 'red';
+        this.eggcornsAlertColor = '#d39898';
       } else {
         this.eggcornsFeedback =
           "Your writing seems to have a many eggcorns. Make sure you're not using eggcorns";
-        this.eggcornsAlertColor = 'red';
+        this.eggcornsAlertColor = '#d39898';
       }
       if (this.totalSentences === 0) {
         throw new Error('');
       }
     } catch (e) {
       this.eggcornsFeedback = 'Make sure you enter at least one sentence.';
-      this.eggcornsAlertColor = 'orange';
+      this.eggcornsAlertColor = '#FFD485';
       this.eggcornsScore = 0;
     }
     this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore));

@@ -138,18 +138,18 @@ export class WordinessFixComponent implements OnInit {
       if (this.wordinessScore > 2) {
         this.wordinessFeedback =
           'Your writing seems too wordy. Why use 3 words when you can say it with 1?';
-        this.wordinessAlertColor = 'red';
+        this.wordinessAlertColor = '#d39898';
       } else {
         this.wordinessFeedback =
           'Woohoo! Your writing seems concise, precise, and snappy. George Orwell would be proud.';
-        this.wordinessAlertColor = 'green';
+        this.wordinessAlertColor = '#98D39B';
       }
       if (this.totalSentences === 0) {
         throw new Error('');
       }
     } catch (e) {
       this.wordinessFeedback = 'Make sure you enter at least one sentence.';
-      this.wordinessAlertColor = 'orange';
+      this.wordinessAlertColor = '#FFD485';
       this.wordinessScore = 0;
     }
     this.wordiness.changeWordinessFeedback(this.wordinessFeedback);

@@ -162,11 +162,11 @@ export class NominalizationsFixComponent implements OnInit {
       if (this.nominalizationsScore <= 6) {
         this.nominalizationsFeedback =
           'Rock on. Your writing has a reasonable number of "nominalized" word forms, highlighted below. You probably don\'t need to reduce these any further.';
-        this.nominalizationsAlertColor = 'green';
+        this.nominalizationsAlertColor = '#98D39B';
       } else {
         this.nominalizationsFeedback =
           'Most of the words below are perfectly acceptable. However, you use many of these "nominalized" (non root-form) words. They bog down writing and decrease readability.';
-        this.nominalizationsAlertColor = 'red';
+        this.nominalizationsAlertColor = '#d39898';
       }
       if (this.totalSentences === 0) {
         throw new Error('');
@@ -174,7 +174,7 @@ export class NominalizationsFixComponent implements OnInit {
     } catch (e) {
       this.nominalizationsFeedback =
         'Make sure you enter at least one sentence.';
-      this.nominalizationsAlertColor = 'orange';
+      this.nominalizationsAlertColor = '#FFD485';
       this.nominalizationsScore = 0;
     }
     this.nominalizations.changeNominalizationsFeedback(

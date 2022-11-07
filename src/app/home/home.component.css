@@ -1,139 +1,95 @@
-body {
-  background-color: #2F6E4D;
-}
-
-.column {
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 #grammarChecker {
   text-align: center;
-  line-height: .1;
-  color: #2F6E4D;
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  line-height: 0.1;
+  color: #2f6e4d;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
 }
 
 #grammarDescription {
   text-align: center;
   line-height: 1;
-  color: #6E8C7C;
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  color: #6e8c7c;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
 }
 
 #textboxBackground {
+  min-width: 90em;
   width: 100%;
-  background: url("backgroundgradient.jpg");
-  margin-top: 0%;
+  margin:auto;
   background-position: center;
-  background-repeat: no-repeat;
+  background: url("backgroundgradient.jpg");
+  background-repeat: repeat;
   background-size: cover;
   background-attachment: fixed; /*make sure when scrolling its fixed*/
   padding-top: 35px;
   padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: center;
 }
 
 #attentionGrabber {
   font-size: 20px;
   font-weight: 500;
-  color: #2F6E4D;
-  -webkit-text-stroke-width: .25px;
+  color: #2f6e4d;
+  -webkit-text-stroke-width: 0.25px;
   /* -webkit-text-stroke-color: #ffffff; */
   text-align: left;
   margin-bottom: 10px;
   padding-left: 7px;
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
-}
-
-.column2 {
-  float: left;
-  width: 300px;
-  padding-right: 20px;
-}
-
-.c2 {
-  background-color: #b1b1bd;
-  padding-left: 20px;
-  margin-bottom: 19px;
-}
-
-.c2 h2 {
-  padding-top: 10px;
-  margin-bottom: 5px;
-}
-
-.c2 ul {
-  padding-bottom: 10px;
-}
-
-.c2 ul li {
-  padding-bottom: 5px;
-}
-
-.homecolumns {
-  padding: 20px;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
 }
 
 .homedescription {
-  color: #2F6E4D;
+  color: #2f6e4d;
   text-align: left;
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
 }
 
 .homedescription h3 {
   font-size: 15px;
-  line-height: .5;
+  line-height: 0.5;
   padding-left: 7px;
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
 }
 
 #userinput {
   height: 400px;
   min-height: 100px;
-  width: 95%;
+  width: 50em;
   resize: none;
   border-width: 1.5px;
   padding: 15px;
   font-size: 14px;
-  border-color: #C6DBD0;
+  border-color: #c6dbd0;
   border-radius: 23px;
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
 }
 
 ::placeholder {
-  color: #ADADAD;
+  color: #adadad;
 }
 
-#submitbutton {
-  background-color: #2F6E4D;
-  color: #FFFFFF;
+#homesubmitbutton {
+  background-color: #2f6e4d;
+  color: #ffffff;
   width: 250px;
   height: 60px;
   font-size: 25px;
-  font-family: Futura,Trebuchet MS,Arial,sans-serif;
-  /* font-weight: bold; */
-  margin-left: 35%;
-  display: table-cell;
-  vertical-align: middle;
-  /* border: 5px solid black; */
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
   border-radius: 23px;
+  align-items: center;
+  align-self: center;
   border: none;
+  margin-left: 230px;
 }
 
-#submitbutton:hover {
-  background-color: #ADADAD;
-  /* border-color: #000000; */
-  color: #2F6E4D;
+#homesubmitbutton:hover {
+  background-color: #adadad;
+  color: #2f6e4d;
   cursor: pointer;
 }
 
-ul {
-  padding-left: 20px;
-  font-size: 20px;
-}
 
-.selfimage {
-  padding-top: 15px;
-  padding-bottom: 15px;
-}

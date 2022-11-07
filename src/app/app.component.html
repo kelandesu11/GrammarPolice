@@ -10,8 +10,13 @@
     </div>
 </mat-toolbar>
 
-<div class="mainDisplay">
-    <router-outlet class="first"></router-outlet>
-    <router-outlet class="second" name="details"></router-outlet>
+
+<div class="mainDisplay" >
+    <router-outlet></router-outlet>
+    <div [hidden]="!showOutlet">
+    <router-outlet (activate)="onActivate($event)"
+    (deactivate)="onDeactivate($event)" name="details"></router-outlet>
+    </div>
 </div>
+
 

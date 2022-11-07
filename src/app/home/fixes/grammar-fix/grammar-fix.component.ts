@@ -146,13 +146,13 @@ export class GrammarFixComponent implements OnInit {
     }
     try {
       if (this.totalGrammar == 0) {
-        this.grammarAlertColor = 'green';
+        this.grammarAlertColor = '#98D39B';
         this.grammarFeedback =
           "Woohoo! We didn't find any obvious grammark errors. However, " +
           'beware: Grammark does not check for fragments, comma splices, subject-verb errors, ' +
           "number and pronoun problems. What's the best way to find grammar errors? Read your writing aloud.";
       } else if (this.totalGrammar > 0) {
-        this.grammarAlertColor = 'red';
+        this.grammarAlertColor = '#d39898';
         this.grammarFeedback =
           'Your writing includes words or phrases usually considered to be grammar errors.';
       }
@@ -161,7 +161,7 @@ export class GrammarFixComponent implements OnInit {
       }
     } catch (e) {
       this.grammarFeedback = 'Make sure you enter at least one sentence.';
-      this.grammarAlertColor = 'orange';
+      this.grammarAlertColor = '#FFD485';
       this.grammarScore = 0;
     }
     this.grammar.changeGrammarScore(Math.round(this.grammarScore * 10) / 10);

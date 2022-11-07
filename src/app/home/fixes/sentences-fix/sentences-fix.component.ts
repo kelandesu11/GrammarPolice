@@ -188,18 +188,18 @@ export class SentencesFixComponent implements OnInit {
       if (this.sentencesScore > 2) {
         this.sentencesFeedback =
           'Hmmm. Your writing may have some sentence-level issues. Check the list below for potential fragments or run-ons.';
-        this.sentencesAlertColor = 'red';
+        this.sentencesAlertColor = '#d39898';
       } else {
         this.sentencesFeedback =
           "Bueno! Your sentences don't show any glaring errors.";
-        this.sentencesAlertColor = 'green';
+        this.sentencesAlertColor = '#98D39B';
       }
       if (this.totalSentences === 0) {
         throw new Error('');
       }
     } catch (e) {
       this.sentencesFeedback = 'Make sure you enter at least one sentence.';
-      this.sentencesAlertColor = 'orange';
+      this.sentencesAlertColor = '#FFD485';
       this.sentencesScore = 0;
     }
     this.sentences.changeSentencesFeedback(this.sentencesFeedback);
