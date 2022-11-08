@@ -276,7 +276,7 @@ export class HomeComponent implements OnInit {
       this.wordinessScore = 0;
     }
     try {
-      if (this.wordinessScore > 2) {
+      if (this.wordinessScore > 0) {
         this.wordinessFeedback = "Your writing seems too wordy. Why use 3 words when you can say it with 1?";
         this.wordinessAlertColor = "#d39898";
       }
@@ -330,7 +330,7 @@ export class HomeComponent implements OnInit {
       this.passiveVoiceScore = 0;
     }
     try {
-      if (this.passiveVoiceScore > 10) {
+      if (this.passiveVoiceScore > 0) {
         this.passiveVoiceFeedback = "Generally, writing is clearer in active voice.";
         this.passiveVoiceAlertColor = "#d39898";
       }
@@ -692,7 +692,7 @@ export class HomeComponent implements OnInit {
       this.sentencesScore = 0;
     }
     try {
-      if (this.sentencesScore > 2) {
+      if (this.sentencesScore > 0) {
         this.sentencesFeedback = "Hmmm. Your writing may have some sentence-level issues. Check the list below for potential fragments or run-ons.";
         this.sentencesAlertColor = "#d39898";
       }

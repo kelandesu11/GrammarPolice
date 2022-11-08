@@ -1,0 +1,69 @@
+    <div class="adminHolder">
+    <div class="tableDiv">
+        <table class="dashNav">
+          <tbody>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="passiveLoad()">Passive Voice</a></td>
+            </tr>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="wordinessLoad()">Wordiness</a></td>
+            </tr>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="academicLoad()">Academic Style</a></td>
+            </tr>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="grammarLoad()">Grammar</a></td>
+            </tr>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="nominalizationsLoad()">Nominalizations</a></td>
+            </tr>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="eggcornsLoad()">Eggcorns</a></td>
+            </tr>
+            <tr class="dashOption">
+              <td class="optionSection"><a class="optionText" (click)="transitionsLoad()">Transitions</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cardDiv">
+        <div class="container">
+            <div class="row">
+              <div class="addRuleDiv" *ngIf="ruleCards.length>0">
+                <form [formGroup]="addRule" (ngSubmit)="add()">
+                  <p>
+                      <mat-form-field appearance="outline">
+                          <mat-label>Rule Check</mat-label>
+                          <input autocomplete="off" formControlName="rule" type="text" matInput placeholder="Display Name">
+                      </mat-form-field>
+                  </p>
+                  <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Feedback</mat-label>
+                        <input autocomplete="off" formControlName="fix" type="text" matInput placeholder="Display Name">
+                    </mat-form-field>
+                </p>
+                  <button mat-raised-button color="primary">Add</button>
+              </form>
+              </div>
+              <div class="col-md-3 mx-auto my-5 rules" *ngFor="let card of ruleCards">
+                <div class="ruleHolder">
+                <mat-card>
+                  <mat-card-body>
+                    <mat-card-title>
+                      <h4>{{card.rule}}</h4>
+                    </mat-card-title>
+          
+                    <mat-card-title>
+                      <h4>{{card.suggestion}}</h4>
+                    </mat-card-title>
+          
+                    <button mat-raised-button color="primary" (click)="delete(card)">Delete</button>
+                  </mat-card-body>
+                </mat-card>
+              </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>

@@ -33,6 +33,8 @@ export class WordinessFixComponent implements OnInit {
   wordinessFeedback: string = ' ';
   wordinessScore: number;
 
+  needHighlight:boolean;
+
   constructor(
     private data: DataService,
     private wordiness: WordinessService,
@@ -55,6 +57,8 @@ export class WordinessFixComponent implements OnInit {
   }
 
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight = false;
     // Reset every time you hit re-highlight
 	this.wordiness.changeWordinessNumber(0);
     this.data.changeTotalSentences(0);
@@ -107,6 +111,7 @@ export class WordinessFixComponent implements OnInit {
       this.wordinessFix(userText);
     }
   }
+  }
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -116,6 +121,7 @@ export class WordinessFixComponent implements OnInit {
 
     // Services
     this.wordinessService();
+    this.needHighlight = true;
   }
   wordinessFix(userText: string) {
     // tslint:disable-next-line: forin
@@ -135,7 +141,7 @@ export class WordinessFixComponent implements OnInit {
       this.wordinessScore = 0;
     }
     try {
-      if (this.wordinessScore > 2) {
+      if (this.wordinessScore > 0) {
         this.wordinessFeedback =
           'Your writing seems too wordy. Why use 3 words when you can say it with 1?';
         this.wordinessAlertColor = '#d39898';

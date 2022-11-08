@@ -5,6 +5,11 @@ import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {DownloadComponent} from './download/download.component';
 import {ResourcesComponent} from './resources/resources.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+import {AuthGuard} from './services/auth.guard';
 
 import { WordinessComponent } from './resources/wordiness/wordiness.component';
 import { TransitionsComponent } from './resources/transitions/transitions.component';
@@ -31,6 +36,12 @@ const routes: Routes = [
   { path:'download', component:DownloadComponent },
 
   { path:'resources',component:ResourcesComponent},
+
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+
+
 
   { path:'resources/wordiness', component:WordinessComponent },
 

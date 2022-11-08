@@ -33,6 +33,8 @@ export class NominalizationsFixComponent implements OnInit {
   nominalizationsFeedback: string;
   nominalizationsScore: number;
 
+  needHighlight: boolean;
+
   constructor(
     private data: DataService,
     private nominalizations: NominalizationsService,
@@ -55,6 +57,8 @@ export class NominalizationsFixComponent implements OnInit {
   }
 
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
 	this.nominalizations.changeNominalizationsNumber(0);
     this.data.changeTotalSentences(0);
@@ -107,6 +111,7 @@ export class NominalizationsFixComponent implements OnInit {
       this.nominalizationsFix(userText);
     }
   }
+}
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -116,6 +121,7 @@ export class NominalizationsFixComponent implements OnInit {
 
     // Service
     this.nominalizationsService();
+    this.needHighlight=true;
   }
 
   // tslint:disable-next-line: typedef

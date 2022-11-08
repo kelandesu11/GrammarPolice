@@ -24,11 +24,11 @@ h1, h3 {
   color: #ADADAD;
 }
 
-.linksHighlight {
+/**.linksHighlight {
 -webkit-text-stroke-width: .25px;
 -webkit-text-stroke-color: #ffffff;
 
-}
+}**/
 
 a:active {
   color: #ADADAD;

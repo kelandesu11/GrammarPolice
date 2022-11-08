@@ -33,6 +33,8 @@ export class EggcornsFixComponent implements OnInit {
   eggcornsUserTable: any;
   eggcornsAlertColor: any;
 
+  needHighlight: boolean;
+
   constructor(
     private data: DataService,
     private eggcorns: EggcornService,
@@ -55,6 +57,8 @@ export class EggcornsFixComponent implements OnInit {
   }
 
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
 	this.eggcorns.changeTotalEggcorns(0);
     this.data.changeTotalSentences(0);
@@ -107,6 +111,7 @@ export class EggcornsFixComponent implements OnInit {
       this.eggcornsFix(userText);
     }
   }
+}
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -125,6 +130,8 @@ export class EggcornsFixComponent implements OnInit {
 
     // Services
     this.eggcornnsService();
+
+    this.needHighlight=true;
   }
 
   eggcornsFix(userText: string) {

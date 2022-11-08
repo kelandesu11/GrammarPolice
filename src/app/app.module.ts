@@ -1,10 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { HomeComponent } from './home/home.component';
@@ -27,6 +33,11 @@ import { NominalizationsFixComponent } from './home/fixes/nominalizations-fix/no
 import { SentencesFixComponent } from './home/fixes/sentences-fix/sentences-fix.component';
 import { EggcornsFixComponent } from './home/fixes/eggcorns-fix/eggcorns-fix.component';
 import { TransitionsFixComponent } from './home/fixes/transitions-fix/transitions-fix.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './services/auth.guard';
+import { AuthService } from './services/auth.service';
 
 const material = [
   MatToolbarModule
@@ -51,16 +62,30 @@ const material = [
     NominalizationsFixComponent,
     SentencesFixComponent,
     EggcornsFixComponent,
-    TransitionsFixComponent
+    TransitionsFixComponent,
+    SignupComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
+
+    AngularFireModule.initializeApp(environment.firebase),  // imports firebase/app needed for everything
+
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+
+    FormsModule,
+    ReactiveFormsModule,
+
     material,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
