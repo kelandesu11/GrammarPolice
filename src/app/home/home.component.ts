@@ -10,6 +10,7 @@ import { EggcornService } from '../services/eggcorns.service';
 import { AcademicStyleService } from '../services/academicstyle.service';
 import { NominalizationsService } from '../services/nominalizations.service';
 import { SentencesService } from '../services/sentences.service';
+import { FirebaseService } from '../../firefireStore.service';
 
 @Component({
   selector: 'app-home',
@@ -89,17 +90,22 @@ export class HomeComponent implements OnInit {
   sentencesScore: number;
 
   constructor(private router: Router,
-              private data: DataService,
-              private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService,
-              private transitions: TransitionsService,
-              private grammar: GrammarService,
-              private eggcorns: EggcornService,
-              private academic: AcademicStyleService,
-              private nominalizations: NominalizationsService,
-              private sentences: SentencesService) { }
+    private data: DataService,
+    private testFireBase: FirebaseService,
+    private passivevoice: PassivevoiceService,
+    private wordiness: WordinessService,
+    private transitions: TransitionsService,
+    private grammar: GrammarService,
+    private eggcorns: EggcornService,
+    private academic: AcademicStyleService,
+    private nominalizations: NominalizationsService,
+    private sentences: SentencesService) { }
 
-  submitClick(): void {
+
+  async submitClick(): Promise<void> {
+
+
+
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
     this.passivevoice.changePassiveVoiceNumber(0);
@@ -156,6 +162,8 @@ export class HomeComponent implements OnInit {
       }
 
       // fixes
+      console.log("Fixes");
+
       this.passiveVoiceFix(userText);
       this.wordinessFix(userText);
       this.transitionsFix(userText);
@@ -200,7 +208,7 @@ export class HomeComponent implements OnInit {
   calculateErrors() {
     let nErrors = 0;
     nErrors = this.passiveVoiceNumber + this.wordinessNumber + this.totalNonAcademic + this.totalGrammar +
-              this.nominalizationsNumber + this.sentencesNumber + this.totalEggcorns + this.totalTransitions;
+      this.nominalizationsNumber + this.sentencesNumber + this.totalEggcorns + this.totalTransitions;
 
     if (nErrors > 0) {
       this.totalErrors = "Potential Problems: " + nErrors;
@@ -222,14 +230,14 @@ export class HomeComponent implements OnInit {
     }
 
     this.grade = 100 - (
-                 Math.round((this.passiveVoiceScore    / 10) * 10 ) / 10 +
-                 Math.round((this.wordinessScore       /  2) * 10 ) / 10 +
-                 Math.round((this.academicStyleScore   /  1) * 10 ) / 10 +
-                 Math.round((this.grammarScore         /  1) * 10 ) / 10 +
-                 Math.round((this.nominalizationsScore /  6) * 10 ) / 10 +
-                 Math.round((this.sentencesScore       /  2) * 10 ) / 10 +
-                 Math.round((this.eggcornsScore        /  1) * 10 ) / 10 +
-                 Math.round((tScore                        ) * 10 ) / 10);
+      Math.round((this.passiveVoiceScore / 10) * 10) / 10 +
+      Math.round((this.wordinessScore / 2) * 10) / 10 +
+      Math.round((this.academicStyleScore / 1) * 10) / 10 +
+      Math.round((this.grammarScore / 1) * 10) / 10 +
+      Math.round((this.nominalizationsScore / 6) * 10) / 10 +
+      Math.round((this.sentencesScore / 2) * 10) / 10 +
+      Math.round((this.eggcornsScore / 1) * 10) / 10 +
+      Math.round((tScore) * 10) / 10);
 
     if (this.totalSentences <= 4) {
       this.grade = 0;
@@ -272,7 +280,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.wordinessScore = (this.wordinessNumber / this.totalSentences) * 100;
-    if (isNaN(this.wordinessScore)|| this.wordinessScore === Infinity) {
+    if (isNaN(this.wordinessScore) || this.wordinessScore === Infinity) {
       this.wordinessScore = 0;
     }
     try {
@@ -412,7 +420,8 @@ export class HomeComponent implements OnInit {
     this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
     this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
     this.transitions.currentTransitionsTable.subscribe(transitionsTable => this.transitionsTable = transitionsTable);
-    this.transitions.currentTransitionsUserTable.subscribe(transitionsUserTable => this.transitionsUserTable = transitionsUserTable);
+    console.log()
+    this.transitions.currentTransitionsUserTable.subscribe(transitionsUserTable => { this.transitionsUserTable = transitionsUserTable.__zone_symbol__value; console.log("[transition fix] Arrived" + transitionsUserTable) });
   }
 
   // This Function will Calculate the Academic Style Score
@@ -431,7 +440,7 @@ export class HomeComponent implements OnInit {
     var wordCounter = 0;
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < userText.length; i++) {
-      if(/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
+      if (/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
         word += userText[i];
       }
       else {
@@ -442,7 +451,7 @@ export class HomeComponent implements OnInit {
     //calculate academic style score
     this.academicStyleScore = (this.totalNonAcademic / wordCounter) * 100;
     if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
-      this.academicStyleScore= 0;
+      this.academicStyleScore = 0;
     }
     try {
       if (this.academicStyleScore > 0) {
@@ -457,13 +466,13 @@ export class HomeComponent implements OnInit {
         throw new Error("");
       }
     }
-    catch(e) {
+    catch (e) {
       this.academicStyleFeedback = "Make sure you enter at least one sentence.";
       this.academicStyleAlertColor = "orange";
       this.academicStyleScore = 0;
     }
     if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
-      this.academicStyleScore= 0;
+      this.academicStyleScore = 0;
     }
     this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore * 10) / 10);
     this.academic.changeAcademicStyleFeedback(this.academicStyleFeedback);
@@ -476,7 +485,7 @@ export class HomeComponent implements OnInit {
     this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
     // this.academic.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
     this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic => this.totalNonAcademic = totalNonAcademic);
-    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
+    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => { this.academicStyleTable = academicStyleTable.__zone_symbol__value; console.log("[academicStyle fix] Arrived") });
   }
 
   // This Function will Calculate the Total Grammar Traps
@@ -490,7 +499,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.grammarScore = (this.totalGrammar / this.totalSentences) * 100;
-    if (isNaN(this.grammarScore)|| this.grammarScore === Infinity) {
+    if (isNaN(this.grammarScore) || this.grammarScore === Infinity) {
       this.grammarScore = 0;
     }
     try {
@@ -538,7 +547,7 @@ export class HomeComponent implements OnInit {
     }
     this.eggcornsScore = (this.totalEggcorns / this.totalSentences) * 100;
     if (isNaN(this.eggcornsScore) || this.eggcornsScore === Infinity) {
-      this.eggcornsScore= 0;
+      this.eggcornsScore = 0;
     }
     try {
       if (this.eggcornsScore == 0) {
@@ -580,12 +589,12 @@ export class HomeComponent implements OnInit {
 
   nominalizationsFix(userText: string) {
     let word;
-    word="";
+    word = "";
     let wordCounter = 0;
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < userText.length; i++) {
 
-      if(/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
+      if (/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
         word += userText[i];
       }
       else {
@@ -617,7 +626,7 @@ export class HomeComponent implements OnInit {
         throw new Error("");
       }
     }
-    catch(e) {
+    catch (e) {
       this.nominalizationsFeedback = "Make sure you enter at least one sentence.";
       this.nominalizationsAlertColor = "orange";
       this.nominalizationsScore = 0;
@@ -704,7 +713,7 @@ export class HomeComponent implements OnInit {
         throw new Error("");
       }
     }
-    catch(e) {
+    catch (e) {
       this.sentencesFeedback = "Make sure you enter at least one sentence.";
       this.sentencesAlertColor = "orange";
       this.sentencesScore = 0;

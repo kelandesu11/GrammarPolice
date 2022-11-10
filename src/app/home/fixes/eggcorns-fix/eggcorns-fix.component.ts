@@ -45,7 +45,7 @@ export class EggcornsFixComponent implements OnInit {
     private wordiness: WordinessService,
     private sentences: SentencesService,
     private transitions: TransitionsService
-  ) {}
+  ) { }
 
   startOverClick(): void {
     this.data.changeMessage('');
@@ -76,7 +76,7 @@ export class EggcornsFixComponent implements OnInit {
     // variables
     // tslint:disable-next-line: prefer-const
     // user text = paragraph from the html file
-    let userText = this.getContent();
+    let userText = this.message.replace(/<\/?span[^>]*>/g, "");
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
@@ -135,6 +135,7 @@ export class EggcornsFixComponent implements OnInit {
   }
 
   eggcornsFix(userText: string) {
+    console.log("eggcorns");
     for (const fix in this.eggcornsTable) {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);

@@ -45,7 +45,7 @@ export class GrammarFixComponent implements OnInit {
     private wordiness: WordinessService,
     private sentences: SentencesService,
     private transitions: TransitionsService
-  ) {}
+  ) { }
 
   startOverClick(): void {
     this.data.changeMessage('');
@@ -74,7 +74,7 @@ export class GrammarFixComponent implements OnInit {
 
     // variables
     // user text = paragraph from the html file
-    let userText = this.getContent();
+    let userText = this.message.replace(/<\/?span[^>]*>/g, "");
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed

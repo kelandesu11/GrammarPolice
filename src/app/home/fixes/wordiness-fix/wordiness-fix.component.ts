@@ -45,7 +45,7 @@ export class WordinessFixComponent implements OnInit {
     private nominalizations: NominalizationsService,
     private sentences: SentencesService,
     private transitions: TransitionsService
-  ) {}
+  ) { }
 
   startOverClick(): void {
     this.data.changeMessage('');
@@ -76,7 +76,7 @@ export class WordinessFixComponent implements OnInit {
 
     // variables
     // user text = paragraph from the html file
-    let userText = this.getContent();
+    let userText = this.message.replace(/<\/?span[^>]*>/g, "");
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
@@ -125,11 +125,11 @@ export class WordinessFixComponent implements OnInit {
   }
   wordinessFix(userText: string) {
     // tslint:disable-next-line: forin
-    for (const fix in this.wordinessTable) {
+    for (const fix in this.wordinessTable.__zone_symbol__value) {
       if (userText.includes(fix)) {
         this.wordiness.changeWordinessNumber(this.wordinessNumber + 1);
         this.wordinessUserTable.find.push(
-          '• ' + fix + ' ⟶ ' + this.wordinessTable[fix]
+          '• ' + fix + ' ⟶ ' + this.wordinessTable.__zone_symbol__value[fix]
         );
         // this.wordinessUserTable.suggestion.push("→ " + this.wordinessTable[fix]);
         this.wordiness.changeWordinessUserTable(this.wordinessUserTable);

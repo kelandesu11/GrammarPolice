@@ -45,7 +45,7 @@ export class TransitionsFixComponent implements OnInit {
     private passivevoice: PassivevoiceService,
     private wordiness: WordinessService,
     private sentences: SentencesService
-  ) {}
+  ) { }
 
   startOverClick(): void {
     this.data.changeMessage('');
@@ -76,7 +76,7 @@ export class TransitionsFixComponent implements OnInit {
 
     // variables
     // user text = paragraph from the html file
-    let userText = this.getContent();
+    let userText = this.message.replace(/<\/?span[^>]*>/g, "");
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
@@ -135,7 +135,7 @@ export class TransitionsFixComponent implements OnInit {
 
   transitionsFix(userText: string) {
     //find transition in user text
-    for (const fix in this.transitionsTable) {
+    for (const fix in this.transitionsTable.__zone_symbol__value) {
       // changing user text to lower Case to match with transitionsTable
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.transitions.changeTotalTransitions(this.totalTransitions + 1);

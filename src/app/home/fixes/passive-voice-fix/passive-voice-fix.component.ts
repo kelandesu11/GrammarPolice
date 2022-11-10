@@ -47,7 +47,7 @@ export class PassiveVoiceFixComponent implements OnInit {
     private wordiness: WordinessService,
     private sentences: SentencesService,
     private transitions: TransitionsService
-  ) {}
+  ) { }
 
   startOverClick(): void {
     this.data.changeMessage('');
@@ -78,7 +78,8 @@ export class PassiveVoiceFixComponent implements OnInit {
 
     // variables
     // user text = paragraph from the html file
-    let userText = this.getContent();
+    let userText = this.message.replace(/<\/?span[^>]*>/g, "");
+    console.log(userText)
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
