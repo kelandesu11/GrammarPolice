@@ -153,7 +153,7 @@ export class AcademicStyleFixComponent implements OnInit {
 
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
         //highlights the error
-        this.highlight(fix, this.academicStyleTable[fix]);
+        this.highlight(fix, this.academicStyleTable.__zone_symbol__value[fix]);
 
         while (userText.indexOf(fix, errorIndex + 1) > errorIndex) {
           // console.log(errorIndex, "• " + fix + " ⟶ " + this.academicStyleTable[fix])

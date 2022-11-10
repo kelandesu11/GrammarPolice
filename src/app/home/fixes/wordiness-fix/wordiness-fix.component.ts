@@ -133,7 +133,7 @@ export class WordinessFixComponent implements OnInit {
         );
         // this.wordinessUserTable.suggestion.push("→ " + this.wordinessTable[fix]);
         this.wordiness.changeWordinessUserTable(this.wordinessUserTable);
-        this.highlight(fix,this.wordinessTable[fix]);
+        this.highlight(fix,this.wordinessTable.__zone_symbol__value[fix]);
       }
     }
     this.wordinessScore = (this.wordinessNumber / this.totalSentences) * 100;

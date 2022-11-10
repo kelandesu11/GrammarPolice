@@ -136,13 +136,13 @@ export class EggcornsFixComponent implements OnInit {
 
   eggcornsFix(userText: string) {
     console.log("eggcorns");
-    for (const fix in this.eggcornsTable) {
+    for (const fix in this.eggcornsTable.__zone_symbol__value) {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
         this.eggcornsUserTable.find.push(
-          '• ' + fix + ' ⟶ ' + this.eggcornsTable[fix]
+          '• ' + fix + ' ⟶ ' + this.eggcornsTable.__zone_symbol__value[fix]
         );
-        this.highlight(fix, this.eggcornsTable[fix]);
+        this.highlight(fix, this.eggcornsTable.__zone_symbol__value[fix]);
         // this.eggcornsUserTable.suggestion.push(" ⟶ " + this.eggcornsTable[fix]);
         this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
       }
