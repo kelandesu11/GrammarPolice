@@ -9,6 +9,7 @@ import { EggcornService } from '../services/eggcorns.service';
 import { AcademicStyleService } from '../services/academicstyle.service';
 import { NominalizationsService } from '../services/nominalizations.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AngularFirestore } from "@angular/fire/compat/firestore";
 
 type RuleType = { rule: string, suggestion: string }
 
@@ -57,7 +58,8 @@ export class DashboardComponent implements OnInit {
     private grammar: GrammarService,
     private eggcorns: EggcornService,
     private academic: AcademicStyleService,
-    private nominalizations: NominalizationsService) { }
+    private nominalizations: NominalizationsService,
+    private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
     this.ruleCards = [];
@@ -77,12 +79,12 @@ export class DashboardComponent implements OnInit {
 
 
   academicLoad(): void {
-    this.activeTable = 'academic';
+    this.activeTable = 'academicstyle';
     this.ruleCards = [];
-    for(const fix in this.academicStyleTable) {
+    for(const fix in this.academicStyleTable.__zone_symbol__value) {
       this.ruleCards.push ({
         rule: fix,
-        suggestion: this.academicStyleTable[fix]
+        suggestion: this.academicStyleTable.__zone_symbol__value[fix]
       })
     }
   }
@@ -90,32 +92,32 @@ export class DashboardComponent implements OnInit {
   grammarLoad(): void {
     this.activeTable = 'grammar';
     this.ruleCards = [];
-    for(const fix in this.grammarTable) {
+    for(const fix in this.grammarTable.__zone_symbol__value) {
       this.ruleCards.push ({
         rule: fix,
-        suggestion: this.grammarTable[fix]
+        suggestion: this.grammarTable.__zone_symbol__value[fix]
       })
     }
   }
 
   nominalizationsLoad(): void {
-    this.activeTable = 'nominalization';
+    this.activeTable = 'norminlizations';
     this.ruleCards = [];
-    for(const fix in this.nominalizationsTable) {
+    for(const fix in this.nominalizationsTable.__zone_symbol__value) {
       this.ruleCards.push ({
         rule: fix,
-        suggestion: this.nominalizationsTable[fix]
+        suggestion: this.nominalizationsTable.__zone_symbol__value[fix]
       })
     }
   }
 
   eggcornsLoad(): void {
-    this.activeTable = 'eggcorn';
+    this.activeTable = 'eggcorns';
     this.ruleCards = [];
-    for(const fix in this.eggcornsTable) {
+    for(const fix in this.eggcornsTable.__zone_symbol__value) {
       this.ruleCards.push ({
         rule: fix,
-        suggestion: this.eggcornsTable[fix]
+        suggestion: this.eggcornsTable.__zone_symbol__value[fix]
       })
     }
   }
@@ -123,10 +125,10 @@ export class DashboardComponent implements OnInit {
   wordinessLoad(): void {
     this.activeTable = 'wordiness';
     this.ruleCards = [];
-    for(const fix in this.wordinessTable) {
+    for(const fix in this.wordinessTable.__zone_symbol__value) {
       this.ruleCards.push ({
         rule: fix,
-        suggestion: this.wordinessTable[fix]
+        suggestion: this.wordinessTable.__zone_symbol__value[fix]
       })
     }
   }
@@ -134,28 +136,21 @@ export class DashboardComponent implements OnInit {
   transitionsLoad(): void {
     this.activeTable = 'transitions';
     this.ruleCards = [];
-    for(const fix in this.transitionsTable) {
+    for(const fix in this.transitionsTable.__zone_symbol__value) {
       this.ruleCards.push ({
         rule: fix,
-        suggestion: this.transitionsTable[fix]
+        suggestion: this.transitionsTable.__zone_symbol__value[fix]
       })
     }
   }
 
   passiveLoad(): void {
-    this.activeTable = 'passive';
+    this.activeTable = 'passivevoice';
     this.ruleCards = [];
-    for(const fix in this.passiveVoiceTable) {
+    for(const fix in this.passiveVoiceTable.__zone_symbol__value) {
       this.ruleCards.push ({
         rule: fix,
-        suggestion: this.passiveVoiceTable[fix]
-      })
-    }
-
-    for(const fix in this.passiveVoiceHelperTable) {
-      this.ruleCards.push ({
-        rule: fix,
-        suggestion: this.passiveVoiceHelperTable[fix]
+        suggestion: this.passiveVoiceTable.__zone_symbol__value[fix]
       })
     }
   }
@@ -165,17 +160,21 @@ export class DashboardComponent implements OnInit {
       rule: this.addRule.get('rule').value, 
       suggestion: this.addRule.get('fix').value
     });
-    if(this.activeTable == 'academic'){
-      //insert method to add to academicStyleTable
-    }
+    this.firestore.collection(this.activeTable).add({fixed: this.addRule.get('fix').value, wrong: this.addRule.get('rule').value})
     this.addRule.reset();
   }
 
   delete(rule: RuleType){
+    let deleteArray = [];
     const index = this.ruleCards.indexOf(rule, 0);
     this.ruleCards.splice(index, 1);
-    if(this.activeTable == 'academic'){
-      //insert method to remove from academicStyleTable
-    }
+
+      this.firestore.collection(this.activeTable, ref => ref.where("wrong", "==", rule.rule).where("fixed", "==", rule.suggestion)).get()
+      .subscribe(ss => {
+          ss.docs.forEach(doc => {
+            doc.ref.delete();
+          })
+        }
+      )       
   }
 }
