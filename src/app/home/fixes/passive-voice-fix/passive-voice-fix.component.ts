@@ -130,7 +130,7 @@ export class PassiveVoiceFixComponent implements OnInit {
 
   passiveVoiceFix(userText: string) {
     // tslint:disable-next-line: forin
-    for (const fix in this.passiveVoiceTable) {
+    for (const fix in this.passiveVoiceTable.__zone_symbol__value) {
       // tslint:disable-next-line: forin
       for (const helper in this.passiveVoiceHelperTable) {
         // String

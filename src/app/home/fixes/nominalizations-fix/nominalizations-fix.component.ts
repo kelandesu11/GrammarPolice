@@ -138,10 +138,10 @@ export class NominalizationsFixComponent implements OnInit {
       ) {
         word += userText[i];
       } else {
-        for (const fix in this.nominalizationsTable) {
+        for (const fix in this.nominalizationsTable.__zone_symbol__value) {
           if (word.length > 7 && word.includes(fix)) {
             this.nominalizationsUserTable.find.push(
-              '• ' + word + ' ⟶ ' + this.nominalizationsTable[fix]
+              '• ' + word + ' ⟶ ' + this.nominalizationsTable.__zone_symbol__value[fix]
             );
             this.nominalizations.changeNominalizationsNumber(
               this.nominalizationsNumber + 1
@@ -149,7 +149,7 @@ export class NominalizationsFixComponent implements OnInit {
             this.nominalizations.changeNominalizationsUserTable(
               this.nominalizationsUserTable
             );
-            this.highlight(word, this.nominalizationsTable[fix]);
+            this.highlight(word, this.nominalizationsTable.__zone_symbol__value[fix]);
           }
         }
         word = '';

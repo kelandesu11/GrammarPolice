@@ -66,35 +66,50 @@ export class FirebaseService {
 
   // get 
   async getGrammar() {
+    let getGrammarJson = {};
     const q = query(collection(this.db, "grammar"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshot
-      // print the firestore values in the grammar
-      console.log(doc.id, " => ", doc.data());
+      // print the firestore values in the academicstyle
+
+      var wrong = doc.data().wrong;
+      var fixed = doc.data().fixed;
+      getGrammarJson[wrong] = fixed;
     });
+    return getGrammarJson;
   }
 
   // get norminlizations
   async getNorminlizations() {
+    let getNorminlizationsJson = {};
     const q = query(collection(this.db, "norminlizations"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshot
-      // print the firestore values in the norminlizations
-      console.log(doc.id, " => ", doc.data());
+      // print the firestore values in the academicstyle
+
+      var wrong = doc.data().wrong;
+      var fixed = doc.data().fixed;
+      getNorminlizationsJson[wrong] = fixed;
     });
+    return getNorminlizationsJson;
   }
 
   // get passive voice
   async getPassiveVoice() {
+    let getPassiveVoiceJson = {};
     const q = query(collection(this.db, "passivevoice"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshot
-      // print the firestore values in the passivevoice
-      console.log(doc.id, " => ", doc.data());
+      // print the firestore values in the academicstyle
+
+      var wrong = doc.data().wrong;
+      var fixed = doc.data().fixed;
+      getPassiveVoiceJson[wrong] = fixed;
     });
+    return getPassiveVoiceJson;
   }
 
   // get transitions

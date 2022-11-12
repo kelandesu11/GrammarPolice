@@ -133,16 +133,16 @@ export class GrammarFixComponent implements OnInit {
   }
   grammarFix(userText: string) {
     // find grammar traps in user text
-    for (const fix in this.grammarTable) {
+    for (const fix in this.grammarTable.__zone_symbol__value) {
       // changing user text to lower Case to match with grammarTable
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.grammar.changeTotalGrammar(this.totalGrammar + 1);
         this.grammarUserTable.find.push(
-          '• ' + fix + ' ⟶ ' + this.grammarTable[fix]
+          '• ' + fix + ' ⟶ ' + this.grammarTable.__zone_symbol__value[fix]
         );
 
         //highlight fix
-        this.highlight(fix, this.grammarTable[fix]);
+        this.highlight(fix, this.grammarTable.__zone_symbol__value[fix]);
         // this.grammarUserTable.suggestion.push(" ⟶ " + this.grammarTable[fix]);
         this.grammar.changeGrammarUserTable(this.grammarUserTable);
       }

@@ -23,7 +23,7 @@ export class EggcornService {
   currentTotalEggcorns = this.totalEggcorns.asObservable();
 
     // Passive Voice Error List
-    private eggcornsTableSource = new BehaviorSubject<any>(this.testFireBase.getWordiness());
+    private eggcornsTableSource = new BehaviorSubject<any>(this.testFireBase.getEggcorns());
     currentEggcornsTable = this.eggcornsTableSource.asObservable();
 
   // this table will contain the user's eggcorn words
