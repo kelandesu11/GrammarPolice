@@ -271,10 +271,10 @@ export class HomeComponent implements OnInit {
   // This Function will Calculate the Wordiness Score
   wordinessFix(userText: string) {
     // tslint:disable-next-line: forin
-    for (const fix in this.wordinessTable) {
+    for (const fix in this.wordinessTable.__zone_symbol__value) {
       if (userText.includes(fix)) {
         this.wordiness.changeWordinessNumber(this.wordinessNumber + 1);
-        this.wordinessUserTable.find.push("• " + fix + " ⟶ " + this.wordinessTable[fix]);
+        this.wordinessUserTable.find.push("• " + fix + " ⟶ " + this.wordinessTable.__zone_symbol__value[fix]);
         // this.wordinessUserTable.suggestion.push(" ⟶ " + this.wordinessTable[fix]);
         this.wordiness.changeWordinessUserTable(this.wordinessUserTable);
       }
@@ -319,7 +319,7 @@ export class HomeComponent implements OnInit {
   // This Function will Calculate the Passive Voice Score
   passiveVoiceFix(userText: string) {
     // tslint:disable-next-line: forin
-    for (const fix in this.passiveVoiceTable) {
+    for (const fix in this.passiveVoiceTable.__zone_symbol__value) {
       // tslint:disable-next-line: forin
       for (const helper in this.passiveVoiceHelperTable) {
         // String
@@ -327,7 +327,7 @@ export class HomeComponent implements OnInit {
 
         if (userText.includes(compareString)) {
           this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
-          this.passiveVoiceUserTable.find.push("• " + compareString + " ⟶ " + this.passiveVoiceTable[fix]);
+          this.passiveVoiceUserTable.find.push("• " + compareString + " ⟶ " + this.passiveVoiceTable.__zone_symbol__value[fix]);
           // this.passiveVoiceUserTable.suggestion.push(" ⟶ " + this.passiveVoiceTable[fix]);
           this.passivevoice.changePassiveVoiceUserTable(this.passiveVoiceUserTable);
         }
@@ -372,12 +372,12 @@ export class HomeComponent implements OnInit {
 
   // This Function will Calculate the Transition Score
   transitionsFix(userText: string) {
-    for (const fix in this.transitionsTable) {
+    for (const fix in this.transitionsTable.__zone_symbol__value) {
       // changing user text to lower Case to match with transitionsTable
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.transitions.changeTotalTransitions(this.totalTransitions + 1);
         // add transition in user text into an array
-        this.transitionsUserTable.find.push("• " + fix + " ⟶ " + this.transitionsTable[fix]);
+        this.transitionsUserTable.find.push("• " + fix + " ⟶ " + this.transitionsTable.__zone_symbol__value[fix]);
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
         // this.transitionsUserTable.suggestion.push(" ⟶ " + this.transitionsTable[fix]);
       }
@@ -427,10 +427,10 @@ export class HomeComponent implements OnInit {
   // This Function will Calculate the Academic Style Score
   academicStyleFix(userText: string) {
     //find non academic word in user text
-    for (const fix in this.academicStyleTable) {
+    for (const fix in this.academicStyleTable.__zone_symbol__value) {
       if (userText.includes(fix)) {
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
-        this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable[fix]);
+        this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable.__zone_symbol__value[fix]);
         this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
         // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
       }
@@ -490,10 +490,10 @@ export class HomeComponent implements OnInit {
 
   // This Function will Calculate the Total Grammar Traps
   grammarFix(userText: string) {
-    for (const fix in this.grammarTable) {
+    for (const fix in this.grammarTable.__zone_symbol__value) {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.grammar.changeTotalGrammar(this.totalGrammar + 1);
-        this.grammarUserTable.find.push("• " + fix + " ⟶ " + this.grammarTable[fix]);
+        this.grammarUserTable.find.push("• " + fix + " ⟶ " + this.grammarTable.__zone_symbol__value[fix]);
         // this.grammarUserTable.suggestion.push(" ⟶ " + this.grammarTable[fix]);
         this.grammar.changeGrammarUserTable(this.grammarUserTable);
       }
@@ -537,10 +537,10 @@ export class HomeComponent implements OnInit {
 
   // This Function will Calculate the Eggcorn Score
   eggcornsFix(userText: string) {
-    for (const fix in this.eggcornsTable) {
+    for (const fix in this.eggcornsTable.__zone_symbol__value) {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
-        this.eggcornsUserTable.find.push("• " + fix + " ⟶ " + this.eggcornsTable[fix]);
+        this.eggcornsUserTable.find.push("• " + fix + " ⟶ " + this.eggcornsTable.__zone_symbol__value[fix]);
         // this.eggcornsUserTable.suggestion.push(" ⟶ " + this.eggcornsTable[fix]);
         this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
       }
@@ -598,9 +598,9 @@ export class HomeComponent implements OnInit {
         word += userText[i];
       }
       else {
-        for (const fix in this.nominalizationsTable) {
+        for (const fix in this.nominalizationsTable.__zone_symbol__value) {
           if (word.length > 7 && word.includes(fix)) {
-            this.nominalizationsUserTable.find.push("• " + word + ' ⟶ ' + this.nominalizationsTable[fix]);
+            this.nominalizationsUserTable.find.push("• " + word + ' ⟶ ' + this.nominalizationsTable.__zone_symbol__value[fix]);
             this.nominalizations.changeNominalizationsNumber(this.nominalizationsNumber + 1);
             this.nominalizations.changeNominalizationsUserTable(this.nominalizationsUserTable);
           }
