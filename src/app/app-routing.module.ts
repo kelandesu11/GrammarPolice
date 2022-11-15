@@ -38,7 +38,7 @@ const routes: Routes = [
   { path:'resources',component:ResourcesComponent},
 
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'signup', component: SignupComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
 
