@@ -1,11 +1,10 @@
+<div on-mouseenter = "reHighlight()">
 <mat-toolbar color="white" class="navbar">
   <a class="linkedpages" routerLink="../../overview">Overview</a>
   <a class="linkedpages" routerLink="../passive-voice-fix">Passive Voice</a>
   <a class="linkedpages" routerLink="../wordiness-fix">Wordiness</a>
   <a class="linkedpages" routerLink="../academic-style-fix">Academic Style</a>
-  <div on-mouseenter = "reHighlight()">
   <a class="linkedpages" routerLink="../grammar-fix">Grammar</a>
-  </div>
   <a class="linkedpages" routerLink="../nominalizations-fix">Nominalizations</a>
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
@@ -15,8 +14,7 @@
 
 <body>
 <div class="alert-box" [style.background-color]="grammarAlertColor">
-  <h5 class="box">{{ totalGrammar }} instances ({{ grammarScore }}% of sentences)</h5>
-    <b class="box">Goal: 0 errors </b>
+  <b class="box">{{ totalGrammar }} instances ({{ grammarScore }}% of sentences)</b>
 </div>
 
 <mat-toolbar color="white" class="category">
@@ -44,3 +42,4 @@
   </div>
 </div>
 </body>
+</div>

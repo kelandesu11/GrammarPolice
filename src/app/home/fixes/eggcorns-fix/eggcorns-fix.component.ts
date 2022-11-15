@@ -33,6 +33,8 @@ export class EggcornsFixComponent implements OnInit {
   eggcornsUserTable: any;
   eggcornsAlertColor: any;
 
+  needHighlight: boolean;
+
   constructor(
     private data: DataService,
     private eggcorns: EggcornService,
@@ -55,6 +57,8 @@ export class EggcornsFixComponent implements OnInit {
   }
 
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
 	this.eggcorns.changeTotalEggcorns(0);
     this.data.changeTotalSentences(0);
@@ -107,6 +111,7 @@ export class EggcornsFixComponent implements OnInit {
       this.eggcornsFix(userText);
     }
   }
+}
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -125,17 +130,19 @@ export class EggcornsFixComponent implements OnInit {
 
     // Services
     this.eggcornnsService();
+
+    this.needHighlight=true;
   }
 
   eggcornsFix(userText: string) {
     console.log("eggcorns");
-    for (const fix in this.eggcornsTable) {
+    for (const fix in this.eggcornsTable.__zone_symbol__value) {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
         this.eggcornsUserTable.find.push(
-          '• ' + fix + ' ⟶ ' + this.eggcornsTable[fix]
+          '• ' + fix + ' ⟶ ' + this.eggcornsTable.__zone_symbol__value[fix]
         );
-        this.highlight(fix, this.eggcornsTable[fix]);
+        this.highlight(fix, this.eggcornsTable.__zone_symbol__value[fix]);
         // this.eggcornsUserTable.suggestion.push(" ⟶ " + this.eggcornsTable[fix]);
         this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
       }
@@ -148,8 +155,8 @@ export class EggcornsFixComponent implements OnInit {
           'Great job! Your writing seems to have no Eggcorns.';
       } else if (this.eggcornsScore <= 5) {
         this.eggcornsFeedback =
-          ' Good job, the number of Eggcorns words in your writing seems low';
-        this.eggcornsAlertColor = 'orange';
+          'Almost there! The number of Eggcorns words in your writing seems low';
+        this.eggcornsAlertColor = 'red';
       } else if (this.eggcornsScore <= 10) {
         this.eggcornsFeedback = 'Your writing seems to have a lot of eggcorns';
         this.eggcornsAlertColor = 'red';

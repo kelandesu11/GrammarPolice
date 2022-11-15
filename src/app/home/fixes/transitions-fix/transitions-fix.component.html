@@ -1,3 +1,4 @@
+<div on-mouseenter = "reHighlight()">
 <mat-toolbar color="white" class="navbar">
   <a class="linkedpages" routerLink="../../overview">Overview</a>
   <a class="linkedpages" routerLink="../passive-voice-fix">Passive Voice</a>
@@ -7,17 +8,14 @@
   <a class="linkedpages" routerLink="../nominalizations-fix">Nominalizations</a>
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
-  <div on-mouseenter = "reHighlight()">
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
-  </div>
   <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
 <body>
 <div class="alert-box" [style.background-color]="transitionsAlertColor">
-  <h5 class="box">
+  <b class="box">
     {{ totalTransitions }} instances ({{ transitionsScore }}% of sentences)
-  </h5>
-  <b class="box">Goal: 10% or more </b>
+  </b>
 </div>
 
 <mat-toolbar color="white" class="category">
@@ -29,6 +27,17 @@
 
 <div>
   <div class="column1">
+    <mat-card *ngIf="transitionsScore<80" class="inDepth">
+      <mat-card-title>Generic Feedback</mat-card-title>
+      <mat-card-content>
+        Transitions help readers see your organization and thought process.<br>
+        <b>Example:</b>
+        <ul>
+          <li><b>No transition: </b>Martinez says the wealthiest 10% pay 70% of taxes. The governor's argument about tax brackets seems..</li> 
+          <li><b>Has transition: </b>Martinez says the wealthiest 10% pay 70% of taxes. <mark>Given this</mark> statistic, the governor's argument about tax brackets seems...</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
    <!-- <button (click)="reHighlight()" class="rehighlight">
       Highlight Errors
     </button> -->
@@ -59,3 +68,4 @@
   </div>
 </div>
 </body>
+</div>

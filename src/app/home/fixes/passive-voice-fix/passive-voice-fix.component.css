@@ -148,3 +148,8 @@ body {
 .feedbackPopup .highlight .feedbackPopup {
   visibility: hidden;
 }
+
+.inDepth{
+  background:#f5f5f5;
+  width:95%;
+}

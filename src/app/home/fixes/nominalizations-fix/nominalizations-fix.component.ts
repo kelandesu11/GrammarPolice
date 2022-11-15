@@ -33,6 +33,8 @@ export class NominalizationsFixComponent implements OnInit {
   nominalizationsFeedback: string;
   nominalizationsScore: number;
 
+  needHighlight: boolean;
+
   constructor(
     private data: DataService,
     private nominalizations: NominalizationsService,
@@ -55,6 +57,8 @@ export class NominalizationsFixComponent implements OnInit {
   }
 
   reHighlight(): void {
+    if(this.needHighlight){
+      this.needHighlight=false;
     // Reset every time you hit re-highlight
 	this.nominalizations.changeNominalizationsNumber(0);
     this.data.changeTotalSentences(0);
@@ -107,6 +111,7 @@ export class NominalizationsFixComponent implements OnInit {
       this.nominalizationsFix(userText);
     }
   }
+}
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => (this.message = message));
@@ -116,6 +121,7 @@ export class NominalizationsFixComponent implements OnInit {
 
     // Service
     this.nominalizationsService();
+    this.needHighlight=true;
   }
 
   // tslint:disable-next-line: typedef
@@ -132,10 +138,10 @@ export class NominalizationsFixComponent implements OnInit {
       ) {
         word += userText[i];
       } else {
-        for (const fix in this.nominalizationsTable) {
+        for (const fix in this.nominalizationsTable.__zone_symbol__value) {
           if (word.length > 7 && word.includes(fix)) {
             this.nominalizationsUserTable.find.push(
-              '• ' + word + ' ⟶ ' + this.nominalizationsTable[fix]
+              '• ' + word + ' ⟶ ' + this.nominalizationsTable.__zone_symbol__value[fix]
             );
             this.nominalizations.changeNominalizationsNumber(
               this.nominalizationsNumber + 1
@@ -143,7 +149,7 @@ export class NominalizationsFixComponent implements OnInit {
             this.nominalizations.changeNominalizationsUserTable(
               this.nominalizationsUserTable
             );
-            this.highlight(word, this.nominalizationsTable[fix]);
+            this.highlight(word, this.nominalizationsTable.__zone_symbol__value[fix]);
           }
         }
         word = '';

@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyCSYHn4OMZfXeoW0TEFTqnwgwuS_I0FqCI",
+    authDomain: "gramulardatabase.firebaseapp.com",
+    databaseURL: "https://gramulardatabase-default-rtdb.firebaseio.com",
+    projectId: "gramulardatabase",
+    storageBucket: "gramulardatabase.appspot.com",
+    messagingSenderId: "765198495430",
+    appId: "1:765198495430:web:c54cd6006c9b84307031c7",
+    measurementId: "G-KGM1GEWG1T"
+  }
 };
 
 /*

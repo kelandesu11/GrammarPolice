@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { FirebaseService } from 'src/firefireStore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,31 +22,12 @@ export class NominalizationsService {
   private nominalizationsUserTableSource = new BehaviorSubject<any>({});
   currentNominalizationsUserTable = this.nominalizationsUserTableSource.asObservable();
 
-  private nominalizationsTableSource = new BehaviorSubject<any>({
-    'ization': 7,
-    'izations': 8,
-    'ing': 3,
-    'ings': 4,
-    'ism': 3,
-    'isms': 4,
-    'ation': 5,
-    'ations': 6,
-    'ition': 5,
-    'itions': 6,
-    'ment': 4,
-    'ments': 5,
-    'ability': 7,
-    'abilities': 9,
-    'ness': 4,
-    'nesses': 6,
-    'ity': 3,
-    'ities': 5,
-    'ence': 4,
-    'ences': 5,
-  });
+  private nominalizationsTableSource = new BehaviorSubject<any>(this.testFireBase.getNorminlizations());
   currentNominalizationsTable = this.nominalizationsTableSource.asObservable();
 
-  constructor() { }
+  constructor(
+    private testFireBase : FirebaseService
+  ) { }
 
   changeNominalizationsAlertColor(nominalizationsAlertColor: string) {
     this.nominalizationsAlertColorSource.next(nominalizationsAlertColor);
