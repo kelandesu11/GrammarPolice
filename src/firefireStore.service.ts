@@ -64,7 +64,7 @@ export class FirebaseService {
     return getEggcornsJson;
   }
 
-  // get 
+  // get
   async getGrammar() {
     let getGrammarJson = {};
     const q = query(collection(this.db, "grammar"));
