@@ -29,11 +29,9 @@
       <div class="cardDiv">
         <div class="container">
             <div class="row">
-<<<<<<< HEAD
+
               <div class="addRuleDiv" *ngIf="ruleCards.length>0">
-=======
-              <div class="" *ngIf="ruleCards.length>0">
->>>>>>> 37605bc0 (Adds backend for adding rules to the html, and the temp rule table.)
+
                 <form [formGroup]="addRule" (ngSubmit)="add()">
                   <p>
                       <mat-form-field appearance="outline">
@@ -50,18 +48,13 @@
                   <button mat-raised-button color="primary">Add</button>
               </form>
               </div>
-<<<<<<< HEAD
+
               <div class="col-md-3 mx-auto my-5 rules" *ngFor="let card of ruleCards">
                 <div class="ruleHolder">
                 <mat-card>
                   <mat-card-body>
                     <mat-card-title>
-=======
-              <div class="col-md-3 mx-auto my-5" *ngFor="let card of ruleCards">
-                <mdb-card>
-                  <mdb-card-body>
-                    <mdb-card-title>
->>>>>>> 37605bc0 (Adds backend for adding rules to the html, and the temp rule table.)
+
                       <h4>{{card.rule}}</h4>
                     </mat-card-title>
           
