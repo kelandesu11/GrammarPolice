@@ -121,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "Grammark"
+  "defaultProject": "Grammark",
+  "cli": {
+    "analytics": false
+  }
 }
